@@ -1,10 +1,12 @@
-import '/core/app_export.dart';
-import 'package:taurouf_s_application1/presentation/page_favoris_page/models/page_favoris_model.dart';
+import 'package:eatfluence_va/core/app_export.dart';
+import 'package:eatfluence_va/presentation/page_favoris_page/models/page_favoris_model.dart';
 
 class PageFavorisController extends GetxController {
   PageFavorisController(this.pageFavorisModelObj);
 
   Rx<PageFavorisModel> pageFavorisModelObj;
+
+  RxString radioGroup = "".obs;
 
   @override
   void onReady() {

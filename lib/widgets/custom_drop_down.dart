@@ -1,12 +1,9 @@
+import 'package:eatfluence_va/core/app_export.dart';
 import 'package:flutter/material.dart';
-import 'package:taurouf_s_application1/core/app_export.dart';
 
 class CustomDropDown extends StatelessWidget {
   CustomDropDown(
-      {this.padding,
-      this.shape,
-      this.variant,
-      this.fontStyle,
+      {this.fontStyle,
       this.alignment,
       this.width,
       this.margin,
@@ -18,12 +15,6 @@ class CustomDropDown extends StatelessWidget {
       this.items,
       this.onChanged,
       this.validator});
-
-  DropDownPadding? padding;
-
-  DropDownShape? shape;
-
-  DropDownVariant? variant;
 
   DropDownFontStyle? fontStyle;
 
@@ -89,28 +80,15 @@ class CustomDropDown extends StatelessWidget {
     return InputDecoration(
       hintText: hintText ?? "",
       hintStyle: _setFontStyle(),
-      border: _setBorderStyle(),
-      focusedBorder: _setBorderStyle(),
+      border: InputBorder.none,
       prefixIcon: prefix,
       prefixIconConstraints: prefixConstraints,
-      fillColor: _setFillColor(),
-      filled: _setFilled(),
       isDense: true,
-      contentPadding: _setPadding(),
     );
   }
 
   _setFontStyle() {
     switch (fontStyle) {
-      case DropDownFontStyle.NexaBook12:
-        return TextStyle(
-          color: ColorConstant.black900,
-          fontSize: getFontSize(
-            12,
-          ),
-          fontFamily: 'Nexa',
-          fontWeight: FontWeight.w400,
-        );
       default:
         return TextStyle(
           color: ColorConstant.black900,
@@ -118,74 +96,12 @@ class CustomDropDown extends StatelessWidget {
             13,
           ),
           fontFamily: 'Nexa',
-          fontWeight: FontWeight.w400,
+          fontWeight: FontWeight.w300,
         );
     }
   }
-
-  _setOutlineBorderRadius() {
-    switch (shape) {
-      default:
-        return BorderRadius.circular(
-          getHorizontalSize(
-            8.50,
-          ),
-        );
-    }
-  }
-
-  _setBorderStyle() {
-    switch (variant) {
-      case DropDownVariant.FillWhiteA700:
-        return OutlineInputBorder(
-          borderRadius: _setOutlineBorderRadius(),
-          borderSide: BorderSide.none,
-        );
-      default:
-        return OutlineInputBorder(
-          borderRadius: _setOutlineBorderRadius(),
-          borderSide: BorderSide.none,
-        );
-    }
-  }
-
-  _setFillColor() {
-    switch (variant) {
-      default:
-        return ColorConstant.whiteA700;
-    }
-  }
-
-  _setFilled() {
-    switch (variant) {
-      default:
-        return true;
-    }
-  }
-
-  _setPadding() {
-    switch (padding) {
-      default:
-        return getPadding(
-          all: 2,
-        );
-    }
-  }
-}
-
-enum DropDownPadding {
-  PaddingAll2,
-}
-
-enum DropDownShape {
-  RoundedBorder8,
-}
-
-enum DropDownVariant {
-  FillWhiteA700,
 }
 
 enum DropDownFontStyle {
   NexaBook13,
-  NexaBook12,
 }

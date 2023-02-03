@@ -1,11 +1,11 @@
-import '/core/app_export.dart';
-import 'package:taurouf_s_application1/presentation/inscription_two_screen/models/inscription_two_model.dart';
+import 'package:eatfluence_va/core/app_export.dart';
+import 'package:eatfluence_va/presentation/inscription_two_screen/models/inscription_two_model.dart';
 import 'package:flutter/material.dart';
 
 class InscriptionTwoController extends GetxController {
-  TextEditingController groupThreeController = TextEditingController();
+  TextEditingController group496Controller = TextEditingController();
 
-  TextEditingController groupTwoController = TextEditingController();
+  TextEditingController group495Controller = TextEditingController();
 
   Rx<InscriptionTwoModel> inscriptionTwoModelObj = InscriptionTwoModel().obs;
 
@@ -17,7 +17,7 @@ class InscriptionTwoController extends GetxController {
   @override
   void onClose() {
     super.onClose();
-    groupThreeController.dispose();
-    groupTwoController.dispose();
+    group496Controller.dispose();
+    group495Controller.dispose();
   }
 }

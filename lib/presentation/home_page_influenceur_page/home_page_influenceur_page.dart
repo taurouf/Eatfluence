@@ -1,11 +1,15 @@
 import 'controller/home_page_influenceur_controller.dart';
 import 'models/home_page_influenceur_model.dart';
+import 'package:eatfluence_va/core/app_export.dart';
+import 'package:eatfluence_va/widgets/app_bar/appbar_image.dart';
+import 'package:eatfluence_va/widgets/app_bar/appbar_stack.dart';
+import 'package:eatfluence_va/widgets/app_bar/appbar_subtitle.dart';
+import 'package:eatfluence_va/widgets/app_bar/custom_app_bar.dart';
+import 'package:eatfluence_va/widgets/custom_button.dart';
+import 'package:eatfluence_va/widgets/custom_drop_down.dart';
+import 'package:eatfluence_va/widgets/custom_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:outline_gradient_button/outline_gradient_button.dart';
-import 'package:taurouf_s_application1/core/app_export.dart';
-import 'package:taurouf_s_application1/widgets/custom_button.dart';
-import 'package:taurouf_s_application1/widgets/custom_drop_down.dart';
-import 'package:taurouf_s_application1/widgets/custom_icon_button.dart';
 
 // ignore_for_file: must_be_immutable
 class HomePageInfluenceurPage extends StatelessWidget {
@@ -15,206 +19,100 @@ class HomePageInfluenceurPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      top: false,
+      bottom: false,
       child: Scaffold(
         backgroundColor: ColorConstant.whiteA700,
-        body: Container(
-          decoration: AppDecoration.fillWhiteA700,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
+        appBar: CustomAppBar(
+          height: getVerticalSize(
+            57.00,
+          ),
+          leadingWidth: 47,
+          leading: AppbarImage(
+            height: getVerticalSize(
+              22.00,
+            ),
+            width: getHorizontalSize(
+              26.00,
+            ),
+            svgPath: ImageConstant.imgMenu,
+            margin: getMargin(
+              left: 21,
+              top: 16,
+              bottom: 19,
+            ),
+          ),
+          centerTitle: true,
+          title: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Container(
-                    decoration: AppDecoration.gradientBluegray50WhiteA70000,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Container(
-                            width: size.width,
-                            margin: getMargin(
-                              top: 39,
-                            ),
-                            child: Padding(
-                              padding: getPadding(
-                                left: 21,
-                                right: 18,
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: getPadding(
-                                      top: 11,
-                                      bottom: 16,
-                                    ),
-                                    child: CommonImageView(
-                                      svgPath: ImageConstant.imgMenu,
-                                      height: getVerticalSize(
-                                        30.00,
-                                      ),
-                                      width: getHorizontalSize(
-                                        34.00,
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: getPadding(
-                                      top: 9,
-                                      bottom: 14,
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        CustomDropDown(
-                                          width: 114,
-                                          focusNode: FocusNode(),
-                                          icon: Container(
-                                            margin: getMargin(
-                                              left: 3,
-                                            ),
-                                            child: CommonImageView(
-                                              svgPath:
-                                                  ImageConstant.imgArrowdown,
-                                            ),
-                                          ),
-                                          hintText: "lbl_localisation".tr,
-                                          margin: getMargin(
-                                            left: 22,
-                                            right: 22,
-                                          ),
-                                          items: controller
-                                              .homePageInfluenceurModelObj
-                                              .value
-                                              .dropdownItemList,
-                                          onChanged: (value) {
-                                            controller.onSelected(value);
-                                          },
-                                        ),
-                                        Align(
-                                          alignment: Alignment.centerLeft,
-                                          child: Padding(
-                                            padding: getPadding(
-                                              top: 4,
-                                            ),
-                                            child: Text(
-                                              "msg_avenue_maurice".tr,
-                                              overflow: TextOverflow.ellipsis,
-                                              textAlign: TextAlign.left,
-                                              style: AppStyle.txtNexaBold15,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  OutlineGradientButton(
-                                    padding: EdgeInsets.only(
-                                      left: getHorizontalSize(
-                                        3.00,
-                                      ),
-                                      top: getVerticalSize(
-                                        3.00,
-                                      ),
-                                      right: getHorizontalSize(
-                                        3.00,
-                                      ),
-                                      bottom: getVerticalSize(
-                                        3.00,
-                                      ),
-                                    ),
-                                    strokeWidth: getHorizontalSize(
-                                      3.00,
-                                    ),
-                                    gradient: LinearGradient(
-                                      begin: Alignment(
-                                        0.5,
-                                        -3.0616171314629196e-17,
-                                      ),
-                                      end: Alignment(
-                                        0.5,
-                                        0.9999999999999999,
-                                      ),
-                                      colors: [
-                                        ColorConstant.deepOrange50,
-                                        ColorConstant.deepPurple50,
-                                        ColorConstant.teal50,
-                                      ],
-                                    ),
-                                    corners: Corners(
-                                      topLeft: Radius.circular(
-                                        28.5,
-                                      ),
-                                      topRight: Radius.circular(
-                                        28.5,
-                                      ),
-                                      bottomLeft: Radius.circular(
-                                        28.5,
-                                      ),
-                                      bottomRight: Radius.circular(
-                                        28.5,
-                                      ),
-                                    ),
-                                    child: Container(
-                                      decoration:
-                                          AppDecoration.outline.copyWith(
-                                        borderRadius:
-                                            BorderRadiusStyle.roundedBorder28,
-                                      ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding: getPadding(
-                                              all: 3,
-                                            ),
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                getHorizontalSize(
-                                                  25.50,
-                                                ),
-                                              ),
-                                              child: CommonImageView(
-                                                imagePath:
-                                                    ImageConstant.imgSanstitre1,
-                                                height: getSize(
-                                                  51.00,
-                                                ),
-                                                width: getSize(
-                                                  51.00,
-                                                ),
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Align(
-                          alignment: Alignment.center,
-                          child: Container(
+              CustomDropDown(
+                width: 114,
+                focusNode: FocusNode(),
+                icon: Container(
+                  margin: getMargin(
+                    left: 3,
+                  ),
+                  child: CustomImageView(
+                    svgPath: ImageConstant.imgArrowdownBlack9009x14,
+                  ),
+                ),
+                hintText: "lbl_localisation".tr,
+                margin: getMargin(
+                  left: 22,
+                  right: 21,
+                ),
+                items: controller
+                    .homePageInfluenceurModelObj.value.dropdownItemList,
+                onChanged: (value) {
+                  controller.onSelected(value);
+                },
+              ),
+              AppbarSubtitle(
+                text: "msg_avenue_maurice".tr,
+                margin: getMargin(
+                  top: 1,
+                ),
+              ),
+            ],
+          ),
+          actions: [
+            AppbarStack(
+              margin: getMargin(
+                left: 18,
+                right: 18,
+              ),
+            ),
+          ],
+        ),
+        body: SizedBox(
+          width: size.width,
+          child: SingleChildScrollView(
+            child: Container(
+              height: getVerticalSize(
+                612.00,
+              ),
+              width: getHorizontalSize(
+                372.00,
+              ),
+              margin: getMargin(
+                left: 18,
+                top: 33,
+                bottom: 5,
+              ),
+              child: Stack(
+                alignment: Alignment.bottomRight,
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Container(
+                      decoration: AppDecoration.gradientBluegray50WhiteA70000,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
                             height: getVerticalSize(
                               168.00,
                             ),
@@ -222,32 +120,25 @@ class HomePageInfluenceurPage extends StatelessWidget {
                               348.00,
                             ),
                             margin: getMargin(
-                              left: 16,
-                              top: 27,
-                              right: 16,
+                              left: 3,
                             ),
                             child: Stack(
                               alignment: Alignment.topLeft,
                               children: [
-                                Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(
-                                      getHorizontalSize(
-                                        24.00,
-                                      ),
-                                    ),
-                                    child: CommonImageView(
-                                      imagePath: ImageConstant.imgMaps1,
-                                      height: getVerticalSize(
-                                        168.00,
-                                      ),
-                                      width: getHorizontalSize(
-                                        348.00,
-                                      ),
-                                      fit: BoxFit.cover,
+                                CustomImageView(
+                                  imagePath: ImageConstant.imgMaps1,
+                                  height: getVerticalSize(
+                                    168.00,
+                                  ),
+                                  width: getHorizontalSize(
+                                    348.00,
+                                  ),
+                                  radius: BorderRadius.circular(
+                                    getHorizontalSize(
+                                      24.00,
                                     ),
                                   ),
+                                  alignment: Alignment.center,
                                 ),
                                 Align(
                                   alignment: Alignment.topLeft,
@@ -255,8 +146,14 @@ class HomePageInfluenceurPage extends StatelessWidget {
                                     margin: getMargin(
                                       left: 13,
                                       top: 11,
-                                      right: 13,
-                                      bottom: 11,
+                                      right: 173,
+                                      bottom: 132,
+                                    ),
+                                    padding: getPadding(
+                                      left: 4,
+                                      top: 2,
+                                      right: 4,
+                                      bottom: 2,
                                     ),
                                     decoration:
                                         AppDecoration.fillBlack900a2.copyWith(
@@ -264,35 +161,98 @@ class HomePageInfluenceurPage extends StatelessWidget {
                                           BorderRadiusStyle.roundedBorder12,
                                     ),
                                     child: Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
-                                        CustomDropDown(
-                                          width: 49,
-                                          focusNode: FocusNode(),
-                                          hintText: "lbl_5km".tr,
-                                          margin: getMargin(
-                                            left: 4,
-                                            top: 4,
-                                            bottom: 4,
+                                        Container(
+                                          height: getVerticalSize(
+                                            19.00,
                                           ),
-                                          fontStyle:
-                                              DropDownFontStyle.NexaBook12,
-                                          items: controller
-                                              .homePageInfluenceurModelObj
-                                              .value
-                                              .dropdownItemList1,
-                                          onChanged: (value) {
-                                            controller.onSelected1(value);
-                                          },
+                                          width: getHorizontalSize(
+                                            49.00,
+                                          ),
+                                          child: Stack(
+                                            alignment: Alignment.centerLeft,
+                                            children: [
+                                              Align(
+                                                alignment: Alignment.topCenter,
+                                                child: Card(
+                                                  clipBehavior: Clip.antiAlias,
+                                                  elevation: 0,
+                                                  margin: EdgeInsets.all(0),
+                                                  color:
+                                                      ColorConstant.whiteA700,
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadiusStyle
+                                                            .roundedBorder8,
+                                                  ),
+                                                  child: Container(
+                                                    height: getVerticalSize(
+                                                      17.00,
+                                                    ),
+                                                    width: getHorizontalSize(
+                                                      49.00,
+                                                    ),
+                                                    padding: getPadding(
+                                                      left: 5,
+                                                      top: 4,
+                                                      right: 5,
+                                                      bottom: 4,
+                                                    ),
+                                                    decoration: AppDecoration
+                                                        .fillWhiteA700
+                                                        .copyWith(
+                                                      borderRadius:
+                                                          BorderRadiusStyle
+                                                              .roundedBorder8,
+                                                    ),
+                                                    child: Stack(
+                                                      children: [
+                                                        CustomImageView(
+                                                          svgPath: ImageConstant
+                                                              .imgArrowdownBlack900,
+                                                          height:
+                                                              getVerticalSize(
+                                                            7.00,
+                                                          ),
+                                                          width:
+                                                              getHorizontalSize(
+                                                            12.00,
+                                                          ),
+                                                          alignment: Alignment
+                                                              .bottomRight,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Align(
+                                                alignment: Alignment.centerLeft,
+                                                child: Padding(
+                                                  padding: getPadding(
+                                                    left: 4,
+                                                  ),
+                                                  child: Text(
+                                                    "lbl_5km".tr,
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    textAlign: TextAlign.left,
+                                                    style:
+                                                        AppStyle.txtNexaBook12,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                         Padding(
                                           padding: getPadding(
                                             left: 4,
-                                            top: 7,
-                                            right: 6,
-                                            bottom: 6,
+                                            top: 4,
+                                            right: 2,
+                                            bottom: 3,
                                           ),
                                           child: Text(
                                             "lbl_autour_de_vous".tr,
@@ -308,60 +268,53 @@ class HomePageInfluenceurPage extends StatelessWidget {
                               ],
                             ),
                           ),
-                        ),
-                        Align(
-                          alignment: Alignment.center,
-                          child: Container(
+                          Container(
                             margin: getMargin(
-                              left: 16,
-                              top: 33,
-                              right: 16,
+                              top: 36,
+                            ),
+                            padding: getPadding(
+                              top: 4,
+                              bottom: 4,
                             ),
                             decoration: AppDecoration.gradientDeeporange50Teal50
                                 .copyWith(
                               borderRadius: BorderRadiusStyle.roundedBorder23,
                             ),
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 CustomButton(
+                                  height: 44,
                                   width: 294,
-                                  text: "msg_rechercher_un_r".tr,
-                                  margin: getMargin(
-                                    left: 6,
-                                    top: 7,
-                                    bottom: 7,
-                                  ),
-                                  variant: ButtonVariant.FillWhiteA700,
+                                  text: "msg_rechercher_un_restaurant".tr,
+                                  variant: ButtonVariant.FillWhiteA700cc,
                                   shape: ButtonShape.RoundedBorder20,
+                                  padding: ButtonPadding.PaddingT11,
                                   fontStyle: ButtonFontStyle.NexaBook12,
                                   prefixWidget: Container(
                                     margin: getMargin(
                                       right: 8,
                                     ),
-                                    child: CommonImageView(
+                                    child: CustomImageView(
                                       svgPath: ImageConstant.imgSearch,
                                     ),
                                   ),
                                 ),
                                 Container(
-                                  margin: getMargin(
-                                    left: 4,
-                                    top: 7,
-                                    bottom: 7,
+                                  padding: getPadding(
+                                    left: 11,
+                                    top: 13,
+                                    right: 11,
+                                    bottom: 13,
                                   ),
                                   decoration:
-                                      AppDecoration.fillWhiteA700.copyWith(
+                                      AppDecoration.fillWhiteA700cc.copyWith(
                                     borderRadius:
                                         BorderRadiusStyle.roundedBorder20,
                                   ),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Container(
                                         height: getVerticalSize(
@@ -370,16 +323,11 @@ class HomePageInfluenceurPage extends StatelessWidget {
                                         width: getHorizontalSize(
                                           24.00,
                                         ),
-                                        margin: getMargin(
-                                          left: 12,
-                                          top: 13,
-                                          right: 11,
-                                        ),
                                         child: Stack(
                                           alignment: Alignment.centerLeft,
                                           children: [
                                             Align(
-                                              alignment: Alignment.bottomLeft,
+                                              alignment: Alignment.bottomCenter,
                                               child: Container(
                                                 height: getVerticalSize(
                                                   3.00,
@@ -388,7 +336,6 @@ class HomePageInfluenceurPage extends StatelessWidget {
                                                   24.00,
                                                 ),
                                                 margin: getMargin(
-                                                  top: 10,
                                                   bottom: 2,
                                                 ),
                                                 decoration: BoxDecoration(
@@ -396,7 +343,7 @@ class HomePageInfluenceurPage extends StatelessWidget {
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                     getHorizontalSize(
-                                                      1.50,
+                                                      1.00,
                                                     ),
                                                   ),
                                                 ),
@@ -413,7 +360,6 @@ class HomePageInfluenceurPage extends StatelessWidget {
                                                 ),
                                                 margin: getMargin(
                                                   left: 4,
-                                                  right: 10,
                                                 ),
                                                 decoration: BoxDecoration(
                                                   color: ColorConstant.black900,
@@ -427,7 +373,7 @@ class HomePageInfluenceurPage extends StatelessWidget {
                                                     color:
                                                         ColorConstant.whiteA700,
                                                     width: getHorizontalSize(
-                                                      0.70,
+                                                      1.00,
                                                     ),
                                                   ),
                                                 ),
@@ -444,16 +390,13 @@ class HomePageInfluenceurPage extends StatelessWidget {
                                           24.00,
                                         ),
                                         margin: getMargin(
-                                          left: 12,
                                           top: 2,
-                                          right: 11,
-                                          bottom: 13,
                                         ),
                                         child: Stack(
                                           alignment: Alignment.centerRight,
                                           children: [
                                             Align(
-                                              alignment: Alignment.topLeft,
+                                              alignment: Alignment.topCenter,
                                               child: Container(
                                                 height: getVerticalSize(
                                                   3.00,
@@ -463,14 +406,13 @@ class HomePageInfluenceurPage extends StatelessWidget {
                                                 ),
                                                 margin: getMargin(
                                                   top: 2,
-                                                  bottom: 10,
                                                 ),
                                                 decoration: BoxDecoration(
                                                   color: ColorConstant.black900,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                     getHorizontalSize(
-                                                      1.50,
+                                                      1.00,
                                                     ),
                                                   ),
                                                 ),
@@ -486,7 +428,6 @@ class HomePageInfluenceurPage extends StatelessWidget {
                                                   8.00,
                                                 ),
                                                 margin: getMargin(
-                                                  left: 10,
                                                   right: 5,
                                                 ),
                                                 decoration: BoxDecoration(
@@ -501,7 +442,7 @@ class HomePageInfluenceurPage extends StatelessWidget {
                                                     color:
                                                         ColorConstant.whiteA700,
                                                     width: getHorizontalSize(
-                                                      0.70,
+                                                      1.00,
                                                     ),
                                                   ),
                                                 ),
@@ -516,730 +457,729 @@ class HomePageInfluenceurPage extends StatelessWidget {
                               ],
                             ),
                           ),
-                        ),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Padding(
+                          Padding(
                             padding: getPadding(
-                              left: 23,
-                              top: 22,
-                              right: 23,
+                              left: 5,
+                              top: 21,
                             ),
                             child: Text(
-                              "msg_sp_cialit_s_fra".tr,
+                              "msg_sp_cialit_s_fran_aises".tr,
                               overflow: TextOverflow.ellipsis,
                               textAlign: TextAlign.left,
                               style: AppStyle.txtNexaBold19,
                             ),
                           ),
-                        ),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: Padding(
+                          Padding(
                             padding: getPadding(
-                              left: 10,
-                              top: 7,
+                              left: 3,
+                              top: 4,
                             ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                OutlineGradientButton(
-                                  padding: EdgeInsets.only(
-                                    left: getHorizontalSize(
-                                      3.00,
-                                    ),
-                                    top: getVerticalSize(
-                                      3.00,
-                                    ),
-                                    right: getHorizontalSize(
-                                      3.00,
-                                    ),
-                                    bottom: getVerticalSize(
-                                      3.00,
-                                    ),
-                                  ),
-                                  strokeWidth: getHorizontalSize(
-                                    3.00,
-                                  ),
-                                  gradient: LinearGradient(
-                                    begin: Alignment(
-                                      0.5,
-                                      -3.0616171314629196e-17,
-                                    ),
-                                    end: Alignment(
-                                      0.5,
-                                      0.9999999999999999,
-                                    ),
-                                    colors: [
-                                      ColorConstant.deepOrange50,
-                                      ColorConstant.deepPurple50,
-                                      ColorConstant.teal50,
-                                    ],
-                                  ),
-                                  corners: Corners(
-                                    topLeft: Radius.circular(
-                                      23,
-                                    ),
-                                    topRight: Radius.circular(
-                                      23,
-                                    ),
-                                    bottomLeft: Radius.circular(
-                                      23,
-                                    ),
-                                    bottomRight: Radius.circular(
-                                      23,
-                                    ),
-                                  ),
-                                  child: Container(
-                                    decoration: AppDecoration.outline.copyWith(
-                                      borderRadius:
-                                          BorderRadiusStyle.roundedBorder23,
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        SingleChildScrollView(
-                                          scrollDirection: Axis.horizontal,
-                                          padding: getPadding(
-                                            top: 3,
-                                            right: 3,
-                                          ),
-                                          child: Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Container(
-                                                decoration: AppDecoration
-                                                    .fillWhiteA700
-                                                    .copyWith(
-                                                  borderRadius:
-                                                      BorderRadiusStyle
-                                                          .customBorderTL23,
-                                                ),
-                                                child: Row(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Padding(
-                                                      padding: getPadding(
-                                                        bottom: 3,
+                            child: OutlineGradientButton(
+                              padding: EdgeInsets.only(
+                                left: getHorizontalSize(
+                                  2.00,
+                                ),
+                                top: getVerticalSize(
+                                  2.00,
+                                ),
+                                right: getHorizontalSize(
+                                  2.00,
+                                ),
+                                bottom: getVerticalSize(
+                                  2.00,
+                                ),
+                              ),
+                              strokeWidth: getHorizontalSize(
+                                2.00,
+                              ),
+                              gradient: LinearGradient(
+                                begin: Alignment(
+                                  0.5,
+                                  0,
+                                ),
+                                end: Alignment(
+                                  0.5,
+                                  1,
+                                ),
+                                colors: [
+                                  ColorConstant.deepOrange50,
+                                  ColorConstant.deepPurple50,
+                                  ColorConstant.teal50,
+                                ],
+                              ),
+                              corners: Corners(
+                                topLeft: Radius.circular(
+                                  23,
+                                ),
+                                topRight: Radius.circular(
+                                  23,
+                                ),
+                                bottomLeft: Radius.circular(
+                                  23,
+                                ),
+                                bottomRight: Radius.circular(
+                                  23,
+                                ),
+                              ),
+                              child: Container(
+                                width: getHorizontalSize(
+                                  328.00,
+                                ),
+                                padding: getPadding(
+                                  top: 2,
+                                  bottom: 2,
+                                ),
+                                decoration: AppDecoration.outline1.copyWith(
+                                  borderRadius:
+                                      BorderRadiusStyle.roundedBorder23,
+                                ),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      width: getHorizontalSize(
+                                        325.00,
+                                      ),
+                                      margin: getMargin(
+                                        right: 3,
+                                      ),
+                                      decoration:
+                                          AppDecoration.fillWhiteA700.copyWith(
+                                        borderRadius:
+                                            BorderRadiusStyle.customBorderTL23,
+                                      ),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          SingleChildScrollView(
+                                            scrollDirection: Axis.horizontal,
+                                            child: IntrinsicWidth(
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  CustomImageView(
+                                                    imagePath: ImageConstant
+                                                        .imgSanstitre21,
+                                                    height: getVerticalSize(
+                                                      125.00,
+                                                    ),
+                                                    width: getHorizontalSize(
+                                                      165.00,
+                                                    ),
+                                                    radius: BorderRadius.only(
+                                                      topLeft: Radius.circular(
+                                                        getHorizontalSize(
+                                                          23.00,
+                                                        ),
                                                       ),
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius.only(
-                                                          topLeft:
-                                                              Radius.circular(
-                                                            getHorizontalSize(
-                                                              20.00,
-                                                            ),
+                                                      bottomLeft:
+                                                          Radius.circular(
+                                                        getHorizontalSize(
+                                                          23.00,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    margin: getMargin(
+                                                      top: 2,
+                                                      bottom: 2,
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding: getPadding(
+                                                      left: 12,
+                                                      top: 14,
+                                                      bottom: 11,
+                                                    ),
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Padding(
+                                                          padding: getPadding(
+                                                            left: 1,
                                                           ),
-                                                          bottomLeft:
-                                                              Radius.circular(
-                                                            getHorizontalSize(
-                                                              20.00,
-                                                            ),
+                                                          child: Text(
+                                                            "lbl_le_cocoon".tr,
+                                                            overflow:
+                                                                TextOverflow
+                                                                    .ellipsis,
+                                                            textAlign:
+                                                                TextAlign.left,
+                                                            style: AppStyle
+                                                                .txtNexaBold15,
                                                           ),
                                                         ),
-                                                        child: CommonImageView(
-                                                          imagePath: ImageConstant
-                                                              .imgSanstitre21,
+                                                        Padding(
+                                                          padding: getPadding(
+                                                            left: 1,
+                                                          ),
+                                                          child: Text(
+                                                            "msg_sp_cialit_fran_aise"
+                                                                .tr,
+                                                            overflow:
+                                                                TextOverflow
+                                                                    .ellipsis,
+                                                            textAlign:
+                                                                TextAlign.left,
+                                                            style: AppStyle
+                                                                .txtNexaBook12Gray80001,
+                                                          ),
+                                                        ),
+                                                        CustomImageView(
+                                                          svgPath: ImageConstant
+                                                              .imgEye,
                                                           height:
                                                               getVerticalSize(
-                                                            122.00,
+                                                            13.00,
                                                           ),
                                                           width:
                                                               getHorizontalSize(
-                                                            165.00,
+                                                            75.00,
                                                           ),
-                                                          fit: BoxFit.cover,
+                                                          margin: getMargin(
+                                                            top: 5,
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding: getPadding(
+                                                            left: 1,
+                                                            top: 11,
+                                                          ),
+                                                          child: Row(
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              CustomImageView(
+                                                                svgPath:
+                                                                    ImageConstant
+                                                                        .imgLocation,
+                                                                height:
+                                                                    getVerticalSize(
+                                                                  15.00,
+                                                                ),
+                                                                width:
+                                                                    getHorizontalSize(
+                                                                  12.00,
+                                                                ),
+                                                                margin:
+                                                                    getMargin(
+                                                                  top: 3,
+                                                                  bottom: 21,
+                                                                ),
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    getPadding(
+                                                                  left: 3,
+                                                                  top: 5,
+                                                                  bottom: 21,
+                                                                ),
+                                                                child: Text(
+                                                                  "lbl_2_5_km"
+                                                                      .tr,
+                                                                  overflow:
+                                                                      TextOverflow
+                                                                          .ellipsis,
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .left,
+                                                                  style: AppStyle
+                                                                      .txtNexaBold12,
+                                                                ),
+                                                              ),
+                                                              CustomIconButton(
+                                                                height: 39,
+                                                                width: 39,
+                                                                margin:
+                                                                    getMargin(
+                                                                  left: 32,
+                                                                ),
+                                                                shape: IconButtonShape
+                                                                    .RoundedBorder19,
+                                                                child:
+                                                                    CustomImageView(
+                                                                  svgPath:
+                                                                      ImageConstant
+                                                                          .imgGroup92,
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  OutlineGradientButton(
+                                                    padding: EdgeInsets.only(
+                                                      left: getHorizontalSize(
+                                                        2.00,
+                                                      ),
+                                                      top: getVerticalSize(
+                                                        2.00,
+                                                      ),
+                                                      right: getHorizontalSize(
+                                                        2.00,
+                                                      ),
+                                                      bottom: getVerticalSize(
+                                                        2.00,
+                                                      ),
+                                                    ),
+                                                    strokeWidth:
+                                                        getHorizontalSize(
+                                                      2.00,
+                                                    ),
+                                                    gradient: LinearGradient(
+                                                      begin: Alignment(
+                                                        0.5,
+                                                        0,
+                                                      ),
+                                                      end: Alignment(
+                                                        0.5,
+                                                        1,
+                                                      ),
+                                                      colors: [
+                                                        ColorConstant
+                                                            .deepOrange50,
+                                                        ColorConstant
+                                                            .deepPurple50,
+                                                        ColorConstant.teal50,
+                                                      ],
+                                                    ),
+                                                    corners: Corners(
+                                                      topLeft: Radius.circular(
+                                                        23,
+                                                      ),
+                                                      topRight: Radius.circular(
+                                                        23,
+                                                      ),
+                                                      bottomLeft:
+                                                          Radius.circular(
+                                                        23,
+                                                      ),
+                                                      bottomRight:
+                                                          Radius.circular(
+                                                        23,
+                                                      ),
+                                                    ),
+                                                    child: Container(
+                                                      height: getVerticalSize(
+                                                        129.00,
+                                                      ),
+                                                      width: getHorizontalSize(
+                                                        328.00,
+                                                      ),
+                                                      margin: getMargin(
+                                                        left: 33,
+                                                      ),
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(
+                                                          getHorizontalSize(
+                                                            23.00,
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
-                                                    Padding(
-                                                      padding: getPadding(
-                                                        left: 9,
-                                                        top: 8,
-                                                        right: 13,
-                                                        bottom: 9,
-                                                      ),
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.min,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Padding(
-                                                            padding: getPadding(
-                                                              right: 10,
-                                                            ),
-                                                            child: Text(
-                                                              "lbl_le_cocoon"
-                                                                  .tr,
-                                                              overflow:
-                                                                  TextOverflow
-                                                                      .ellipsis,
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .left,
-                                                              style: AppStyle
-                                                                  .txtNexaBold18,
-                                                            ),
-                                                          ),
-                                                          Padding(
-                                                            padding: getPadding(
-                                                              top: 4,
-                                                              right: 10,
-                                                            ),
-                                                            child: Text(
-                                                              "msg_sp_cialit_fran"
-                                                                  .tr,
-                                                              overflow:
-                                                                  TextOverflow
-                                                                      .ellipsis,
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .left,
-                                                              style: AppStyle
-                                                                  .txtNexaBook12,
-                                                            ),
-                                                          ),
-                                                          Padding(
-                                                            padding: getPadding(
-                                                              top: 5,
-                                                              right: 10,
-                                                            ),
-                                                            child:
-                                                                CommonImageView(
-                                                              svgPath:
-                                                                  ImageConstant
-                                                                      .imgEye,
-                                                              height:
-                                                                  getVerticalSize(
-                                                                13.00,
-                                                              ),
-                                                              width:
-                                                                  getHorizontalSize(
-                                                                75.00,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          Align(
-                                                            alignment: Alignment
-                                                                .center,
-                                                            child: Padding(
-                                                              padding:
-                                                                  getPadding(
-                                                                left: 1,
-                                                                top: 14,
-                                                              ),
-                                                              child: Row(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  Padding(
-                                                                    padding:
-                                                                        getPadding(
-                                                                      bottom:
-                                                                          25,
-                                                                    ),
-                                                                    child:
-                                                                        CommonImageView(
-                                                                      svgPath:
-                                                                          ImageConstant
-                                                                              .imgLocation,
-                                                                      height:
-                                                                          getVerticalSize(
-                                                                        15.00,
-                                                                      ),
-                                                                      width:
-                                                                          getHorizontalSize(
-                                                                        12.00,
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                  Padding(
-                                                                    padding:
-                                                                        getPadding(
-                                                                      left: 3,
-                                                                      top: 2,
-                                                                      bottom:
-                                                                          25,
-                                                                    ),
-                                                                    child: Text(
-                                                                      "lbl_2_5_km"
-                                                                          .tr,
-                                                                      overflow:
-                                                                          TextOverflow
-                                                                              .ellipsis,
-                                                                      textAlign:
-                                                                          TextAlign
-                                                                              .left,
-                                                                      style: AppStyle
-                                                                          .txtNexaBold12,
-                                                                    ),
-                                                                  ),
-                                                                  CustomIconButton(
-                                                                    height: 39,
-                                                                    width: 39,
-                                                                    margin:
-                                                                        getMargin(
-                                                                      left: 34,
-                                                                      top: 1,
-                                                                    ),
-                                                                    shape: IconButtonShape
-                                                                        .RoundedBorder19,
-                                                                    child:
-                                                                        CommonImageView(
-                                                                      svgPath:
-                                                                          ImageConstant
-                                                                              .imgGroup38,
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: getPadding(
-                                                  left: 20,
-                                                ),
-                                                child: CommonImageView(
-                                                  imagePath: ImageConstant
-                                                      .imgRectangle21,
-                                                  height: getVerticalSize(
-                                                    128.00,
                                                   ),
-                                                  width: getHorizontalSize(
-                                                    328.00,
-                                                  ),
-                                                ),
+                                                ],
                                               ),
-                                            ],
+                                            ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
-                                  ),
+                                  ],
                                 ),
-                                Padding(
-                                  padding: getPadding(
-                                    left: 19,
-                                    top: 4,
-                                    bottom: 2,
-                                  ),
-                                  child: CommonImageView(
-                                    imagePath: ImageConstant.imgRectangle6,
-                                    height: getVerticalSize(
-                                      122.00,
-                                    ),
-                                    width: getHorizontalSize(
-                                      22.00,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                              ),
                             ),
                           ),
-                        ),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Padding(
+                          Padding(
                             padding: getPadding(
-                              left: 23,
-                              top: 18,
-                              right: 23,
+                              left: 5,
+                              top: 16,
                             ),
                             child: Text(
-                              "msg_sp_cialit_s_ita".tr,
+                              "msg_sp_cialit_s_italiennes".tr,
                               overflow: TextOverflow.ellipsis,
                               textAlign: TextAlign.left,
                               style: AppStyle.txtNexaBold19,
                             ),
                           ),
-                        ),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: Padding(
+                          Padding(
                             padding: getPadding(
-                              left: 10,
-                              top: 8,
-                              bottom: 78,
+                              left: 3,
+                              top: 9,
                             ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                OutlineGradientButton(
-                                  padding: EdgeInsets.only(
-                                    left: getHorizontalSize(
-                                      3.00,
-                                    ),
-                                    top: getVerticalSize(
-                                      3.00,
-                                    ),
-                                    right: getHorizontalSize(
-                                      3.00,
-                                    ),
-                                    bottom: getVerticalSize(
-                                      3.00,
-                                    ),
-                                  ),
-                                  strokeWidth: getHorizontalSize(
-                                    3.00,
-                                  ),
-                                  gradient: LinearGradient(
-                                    begin: Alignment(
-                                      0.5,
-                                      -3.0616171314629196e-17,
-                                    ),
-                                    end: Alignment(
-                                      0.5,
-                                      0.9999999999999999,
-                                    ),
-                                    colors: [
-                                      ColorConstant.deepOrange50,
-                                      ColorConstant.deepPurple50,
-                                      ColorConstant.teal50,
-                                    ],
-                                  ),
-                                  corners: Corners(
-                                    topLeft: Radius.circular(
-                                      23,
-                                    ),
-                                    topRight: Radius.circular(
-                                      23,
-                                    ),
-                                    bottomLeft: Radius.circular(
-                                      23,
-                                    ),
-                                    bottomRight: Radius.circular(
-                                      23,
-                                    ),
-                                  ),
-                                  child: Container(
-                                    decoration: AppDecoration.outline.copyWith(
-                                      borderRadius:
-                                          BorderRadiusStyle.roundedBorder23,
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Align(
-                                          alignment: Alignment.centerLeft,
-                                          child: SingleChildScrollView(
+                            child: OutlineGradientButton(
+                              padding: EdgeInsets.only(
+                                left: getHorizontalSize(
+                                  2.00,
+                                ),
+                                top: getVerticalSize(
+                                  2.00,
+                                ),
+                                right: getHorizontalSize(
+                                  2.00,
+                                ),
+                                bottom: getVerticalSize(
+                                  2.00,
+                                ),
+                              ),
+                              strokeWidth: getHorizontalSize(
+                                2.00,
+                              ),
+                              gradient: LinearGradient(
+                                begin: Alignment(
+                                  0.5,
+                                  0,
+                                ),
+                                end: Alignment(
+                                  0.5,
+                                  1,
+                                ),
+                                colors: [
+                                  ColorConstant.deepOrange50,
+                                  ColorConstant.deepPurple50,
+                                  ColorConstant.teal50,
+                                ],
+                              ),
+                              corners: Corners(
+                                topLeft: Radius.circular(
+                                  23,
+                                ),
+                                topRight: Radius.circular(
+                                  23,
+                                ),
+                                bottomLeft: Radius.circular(
+                                  23,
+                                ),
+                                bottomRight: Radius.circular(
+                                  23,
+                                ),
+                              ),
+                              child: Container(
+                                width: getHorizontalSize(
+                                  328.00,
+                                ),
+                                padding: getPadding(
+                                  top: 2,
+                                  bottom: 2,
+                                ),
+                                decoration: AppDecoration.outline1.copyWith(
+                                  borderRadius:
+                                      BorderRadiusStyle.roundedBorder23,
+                                ),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      width: getHorizontalSize(
+                                        328.00,
+                                      ),
+                                      decoration:
+                                          AppDecoration.fillWhiteA700.copyWith(
+                                        borderRadius:
+                                            BorderRadiusStyle.roundedBorder23,
+                                      ),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          SingleChildScrollView(
                                             scrollDirection: Axis.horizontal,
                                             padding: getPadding(
-                                              top: 3,
+                                              left: 2,
                                             ),
-                                            child: Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Container(
-                                                  decoration: AppDecoration
-                                                      .fillWhiteA700
-                                                      .copyWith(
-                                                    borderRadius:
-                                                        BorderRadiusStyle
-                                                            .customBorderTL231,
-                                                  ),
-                                                  child: Row(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Padding(
-                                                        padding: getPadding(
-                                                          left: 3,
-                                                          bottom: 3,
-                                                        ),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius.only(
-                                                            topLeft:
-                                                                Radius.circular(
-                                                              getHorizontalSize(
-                                                                20.00,
-                                                              ),
-                                                            ),
-                                                            bottomLeft:
-                                                                Radius.circular(
-                                                              getHorizontalSize(
-                                                                20.00,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          child:
-                                                              CommonImageView(
-                                                            imagePath: ImageConstant
-                                                                .imgPproiseaublanc,
-                                                            height:
-                                                                getVerticalSize(
-                                                              122.00,
-                                                            ),
-                                                            width:
-                                                                getHorizontalSize(
-                                                              165.00,
-                                                            ),
-                                                            fit: BoxFit.cover,
-                                                          ),
+                                            child: IntrinsicWidth(
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  CustomImageView(
+                                                    imagePath: ImageConstant
+                                                        .imgPproiseaublanc,
+                                                    height: getVerticalSize(
+                                                      125.00,
+                                                    ),
+                                                    width: getHorizontalSize(
+                                                      163.00,
+                                                    ),
+                                                    radius: BorderRadius.only(
+                                                      topLeft: Radius.circular(
+                                                        getHorizontalSize(
+                                                          20.00,
                                                         ),
                                                       ),
-                                                      Padding(
-                                                        padding: getPadding(
-                                                          left: 11,
-                                                          top: 8,
-                                                          right: 17,
-                                                          bottom: 16,
+                                                      bottomLeft:
+                                                          Radius.circular(
+                                                        getHorizontalSize(
+                                                          20.00,
                                                         ),
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            Padding(
-                                                              padding:
-                                                                  getPadding(
-                                                                right: 10,
-                                                              ),
-                                                              child: Text(
-                                                                "lbl_le_grand_re"
-                                                                    .tr,
-                                                                overflow:
-                                                                    TextOverflow
-                                                                        .ellipsis,
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .left,
-                                                                style: AppStyle
-                                                                    .txtNexaBold18,
-                                                              ),
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  getPadding(
-                                                                top: 4,
-                                                                right: 10,
-                                                              ),
-                                                              child: Text(
-                                                                "msg_sp_cialit_ital"
-                                                                    .tr,
-                                                                overflow:
-                                                                    TextOverflow
-                                                                        .ellipsis,
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .left,
-                                                                style: AppStyle
-                                                                    .txtNexaBook12,
-                                                              ),
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  getPadding(
-                                                                top: 5,
-                                                                right: 10,
-                                                              ),
-                                                              child:
-                                                                  CommonImageView(
+                                                      ),
+                                                    ),
+                                                    margin: getMargin(
+                                                      top: 2,
+                                                      bottom: 2,
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding: getPadding(
+                                                      left: 13,
+                                                      top: 14,
+                                                      bottom: 18,
+                                                    ),
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          "lbl_le_grand_re".tr,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          textAlign:
+                                                              TextAlign.left,
+                                                          style: AppStyle
+                                                              .txtNexaBold15,
+                                                        ),
+                                                        Padding(
+                                                          padding: getPadding(
+                                                            top: 1,
+                                                          ),
+                                                          child: Text(
+                                                            "msg_sp_cialit_italienne"
+                                                                .tr,
+                                                            overflow:
+                                                                TextOverflow
+                                                                    .ellipsis,
+                                                            textAlign:
+                                                                TextAlign.left,
+                                                            style: AppStyle
+                                                                .txtNexaBook12Gray80001,
+                                                          ),
+                                                        ),
+                                                        CustomImageView(
+                                                          svgPath: ImageConstant
+                                                              .imgEye,
+                                                          height:
+                                                              getVerticalSize(
+                                                            13.00,
+                                                          ),
+                                                          width:
+                                                              getHorizontalSize(
+                                                            75.00,
+                                                          ),
+                                                          margin: getMargin(
+                                                            top: 4,
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding: getPadding(
+                                                            left: 1,
+                                                            top: 14,
+                                                          ),
+                                                          child: Row(
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              CustomImageView(
                                                                 svgPath:
                                                                     ImageConstant
-                                                                        .imgEye,
+                                                                        .imgLocation,
                                                                 height:
                                                                     getVerticalSize(
-                                                                  13.00,
+                                                                  15.00,
                                                                 ),
                                                                 width:
                                                                     getHorizontalSize(
-                                                                  75.00,
-                                                                ),
-                                                              ),
-                                                            ),
-                                                            Align(
-                                                              alignment:
-                                                                  Alignment
-                                                                      .center,
-                                                              child: Container(
-                                                                width:
-                                                                    getHorizontalSize(
-                                                                  130.00,
+                                                                  12.00,
                                                                 ),
                                                                 margin:
                                                                     getMargin(
-                                                                  left: 1,
-                                                                  top: 14,
-                                                                ),
-                                                                child: Row(
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .spaceBetween,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  children: [
-                                                                    Padding(
-                                                                      padding:
-                                                                          getPadding(
-                                                                        bottom:
-                                                                            18,
-                                                                      ),
-                                                                      child:
-                                                                          Row(
-                                                                        crossAxisAlignment:
-                                                                            CrossAxisAlignment.center,
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.min,
-                                                                        children: [
-                                                                          CommonImageView(
-                                                                            svgPath:
-                                                                                ImageConstant.imgLocation,
-                                                                            height:
-                                                                                getVerticalSize(
-                                                                              15.00,
-                                                                            ),
-                                                                            width:
-                                                                                getHorizontalSize(
-                                                                              12.00,
-                                                                            ),
-                                                                          ),
-                                                                          Padding(
-                                                                            padding:
-                                                                                getPadding(
-                                                                              left: 3,
-                                                                              top: 1,
-                                                                              bottom: 1,
-                                                                            ),
-                                                                            child:
-                                                                                Text(
-                                                                              "lbl_4_km".tr,
-                                                                              overflow: TextOverflow.ellipsis,
-                                                                              textAlign: TextAlign.left,
-                                                                              style: AppStyle.txtNexaBold12,
-                                                                            ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                    Padding(
-                                                                      padding:
-                                                                          getPadding(
-                                                                        top: 9,
-                                                                      ),
-                                                                      child:
-                                                                          CommonImageView(
-                                                                        svgPath:
-                                                                            ImageConstant.imgRewind,
-                                                                        height:
-                                                                            getVerticalSize(
-                                                                          24.00,
-                                                                        ),
-                                                                        width:
-                                                                            getHorizontalSize(
-                                                                          27.00,
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ],
+                                                                  bottom: 14,
                                                                 ),
                                                               ),
-                                                            ),
-                                                          ],
+                                                              Padding(
+                                                                padding:
+                                                                    getPadding(
+                                                                  left: 3,
+                                                                  top: 1,
+                                                                  bottom: 15,
+                                                                ),
+                                                                child: Text(
+                                                                  "lbl_4_km".tr,
+                                                                  overflow:
+                                                                      TextOverflow
+                                                                          .ellipsis,
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .left,
+                                                                  style: AppStyle
+                                                                      .txtNexaBold12,
+                                                                ),
+                                                              ),
+                                                              CustomImageView(
+                                                                svgPath:
+                                                                    ImageConstant
+                                                                        .imgRewind,
+                                                                height:
+                                                                    getVerticalSize(
+                                                                  24.00,
+                                                                ),
+                                                                width:
+                                                                    getHorizontalSize(
+                                                                  27.00,
+                                                                ),
+                                                                margin:
+                                                                    getMargin(
+                                                                  left: 52,
+                                                                  top: 5,
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  OutlineGradientButton(
+                                                    padding: EdgeInsets.only(
+                                                      left: getHorizontalSize(
+                                                        2.00,
+                                                      ),
+                                                      top: getVerticalSize(
+                                                        2.00,
+                                                      ),
+                                                      right: getHorizontalSize(
+                                                        2.00,
+                                                      ),
+                                                      bottom: getVerticalSize(
+                                                        2.00,
+                                                      ),
+                                                    ),
+                                                    strokeWidth:
+                                                        getHorizontalSize(
+                                                      2.00,
+                                                    ),
+                                                    gradient: LinearGradient(
+                                                      begin: Alignment(
+                                                        0.5,
+                                                        0,
+                                                      ),
+                                                      end: Alignment(
+                                                        0.5,
+                                                        1,
+                                                      ),
+                                                      colors: [
+                                                        ColorConstant
+                                                            .deepOrange50,
+                                                        ColorConstant
+                                                            .deepPurple50,
+                                                        ColorConstant.teal50,
+                                                      ],
+                                                    ),
+                                                    corners: Corners(
+                                                      topLeft: Radius.circular(
+                                                        23,
+                                                      ),
+                                                      topRight: Radius.circular(
+                                                        23,
+                                                      ),
+                                                      bottomLeft:
+                                                          Radius.circular(
+                                                        23,
+                                                      ),
+                                                      bottomRight:
+                                                          Radius.circular(
+                                                        23,
+                                                      ),
+                                                    ),
+                                                    child: Container(
+                                                      height: getVerticalSize(
+                                                        129.00,
+                                                      ),
+                                                      width: getHorizontalSize(
+                                                        328.00,
+                                                      ),
+                                                      margin: getMargin(
+                                                        left: 34,
+                                                      ),
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(
+                                                          getHorizontalSize(
+                                                            23.00,
+                                                          ),
                                                         ),
                                                       ),
-                                                    ],
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: getPadding(
-                                                    left: 17,
-                                                  ),
-                                                  child: CommonImageView(
-                                                    imagePath: ImageConstant
-                                                        .imgRectangle21128X328,
-                                                    height: getVerticalSize(
-                                                      128.00,
-                                                    ),
-                                                    width: getHorizontalSize(
-                                                      328.00,
                                                     ),
                                                   ),
-                                                ),
-                                              ],
+                                                ],
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
-                                  ),
+                                  ],
                                 ),
-                                Padding(
-                                  padding: getPadding(
-                                    left: 20,
-                                    top: 3,
-                                    bottom: 3,
-                                  ),
-                                  child: CommonImageView(
-                                    imagePath: ImageConstant.imgCarterestauco,
-                                    height: getVerticalSize(
-                                      122.00,
-                                    ),
-                                    width: getHorizontalSize(
-                                      21.00,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                ),
+                  CustomImageView(
+                    imagePath: ImageConstant.imgRectangle6,
+                    height: getVerticalSize(
+                      125.00,
+                    ),
+                    width: getHorizontalSize(
+                      22.00,
+                    ),
+                    alignment: Alignment.bottomRight,
+                    margin: getMargin(
+                      bottom: 176,
+                    ),
+                  ),
+                  CustomImageView(
+                    imagePath: ImageConstant.imgCarterestaucot,
+                    height: getVerticalSize(
+                      125.00,
+                    ),
+                    width: getHorizontalSize(
+                      22.00,
+                    ),
+                    alignment: Alignment.bottomRight,
+                    margin: getMargin(
+                      bottom: 2,
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ),

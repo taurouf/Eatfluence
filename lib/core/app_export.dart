@@ -1,28 +1,18 @@
 export 'package:get/get.dart';
-
-export 'package:taurouf_s_application1/localization/app_localization.dart';
-
-export 'package:taurouf_s_application1/core/constants/constants.dart';
-
-export 'package:taurouf_s_application1/core/utils/image_constant.dart';
-export 'package:taurouf_s_application1/core/utils/color_constant.dart';
-
-export 'package:taurouf_s_application1/core/utils/size_utils.dart';
-export 'package:taurouf_s_application1/core/utils/pref_utils.dart';
-
-export 'package:taurouf_s_application1/core/utils/initial_bindings.dart';
-
-export 'package:taurouf_s_application1/theme/app_style.dart';
-export 'package:taurouf_s_application1/theme/app_decoration.dart';
-
+export 'package:eatfluence_va/localization/app_localization.dart';
+export 'package:eatfluence_va/core/constants/constants.dart';
+export 'package:eatfluence_va/core/utils/image_constant.dart';
+export 'package:eatfluence_va/core/utils/color_constant.dart';
+export 'package:eatfluence_va/core/utils/size_utils.dart';
+export 'package:eatfluence_va/core/utils/pref_utils.dart';
+export 'package:eatfluence_va/core/utils/initial_bindings.dart';
+export 'package:eatfluence_va/theme/app_style.dart';
+export 'package:eatfluence_va/theme/app_decoration.dart';
 export 'package:connectivity_plus/connectivity_plus.dart';
-
-export 'package:taurouf_s_application1/routes/app_routes.dart';
-
-export 'package:taurouf_s_application1/data/models/selectionPopupModel/selection_popup_model.dart';
-
-export 'package:taurouf_s_application1/widgets/common_image_view.dart';
-
-export 'package:taurouf_s_application1/core/errors/exceptions.dart';
-export 'package:taurouf_s_application1/core/network/network_info.dart';
-export 'package:taurouf_s_application1/core/utils/logger.dart';
+export 'package:eatfluence_va/routes/app_routes.dart';
+export 'package:eatfluence_va/data/models/selectionPopupModel/selection_popup_model.dart';
+export 'package:eatfluence_va/widgets/custom_image_view.dart';
+export 'package:eatfluence_va/core/errors/exceptions.dart';
+export 'package:eatfluence_va/core/network/network_info.dart';
+export 'package:eatfluence_va/core/utils/logger.dart';
+export 'package:eatfluence_va/core/utils/date_time_utils.dart';

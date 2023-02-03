@@ -1,0 +1,1 @@
+class Publications1ItemModel {}

@@ -1,297 +1,158 @@
 import 'controller/inscription_two_controller.dart';
+import 'package:eatfluence_va/core/app_export.dart';
+import 'package:eatfluence_va/widgets/custom_button.dart';
+import 'package:eatfluence_va/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
-import 'package:taurouf_s_application1/core/app_export.dart';
-import 'package:taurouf_s_application1/widgets/custom_button.dart';
-import 'package:taurouf_s_application1/widgets/custom_text_form_field.dart';
 
 class InscriptionTwoScreen extends GetWidget<InscriptionTwoController> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        backgroundColor: ColorConstant.whiteA700,
-        body: Container(
-          width: size.width,
-          child: SingleChildScrollView(
-            child: Container(
-              height: size.height,
-              width: size.width,
-              child: Stack(
-                alignment: Alignment.centerLeft,
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: CommonImageView(
-                      imagePath: ImageConstant.imgDegradefond,
-                      height: getVerticalSize(
-                        844.00,
-                      ),
-                      width: getHorizontalSize(
-                        390.00,
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
+        top: false,
+        bottom: false,
+        child: Scaffold(
+            extendBody: true,
+            extendBodyBehindAppBar: true,
+            resizeToAvoidBottomInset: false,
+            backgroundColor: ColorConstant.whiteA700,
+            body: Container(
+                width: size.width,
+                height: size.height,
+                decoration: BoxDecoration(
+                    color: ColorConstant.whiteA700,
+                    image: DecorationImage(
+                        image: AssetImage(ImageConstant.imgLoginpageone),
+                        fit: BoxFit.cover)),
+                child: Container(
+                    width: size.width,
+                    padding: getPadding(left: 40, top: 66, right: 40),
                     child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Container(
-                          width: getHorizontalSize(
-                            276.00,
-                          ),
-                          margin: getMargin(
-                            left: 23,
-                            top: 92,
-                            right: 23,
-                          ),
-                          child: RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(
-                                  text: "lbl_cr_ez_un_compte".tr,
-                                  style: TextStyle(
-                                    color: ColorConstant.black900,
-                                    fontSize: getFontSize(
-                                      35,
-                                    ),
-                                    fontFamily: 'Nexa Bold',
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: " ",
-                                  style: TextStyle(
-                                    color: ColorConstant.black900,
-                                    fontSize: getFontSize(
-                                      30,
-                                    ),
-                                    fontFamily: 'Nexa Bold',
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: "lbl_pour_commencer".tr,
-                                  style: TextStyle(
-                                    color: ColorConstant.black900,
-                                    fontSize: getFontSize(
-                                      30,
-                                    ),
-                                    fontFamily: 'Nexa Light',
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                        Padding(
-                          padding: getPadding(
-                            left: 23,
-                            top: 63,
-                            right: 23,
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Container(
-                                padding: getPadding(
-                                  left: 10,
-                                  top: 4,
-                                  right: 11,
-                                  bottom: 5,
-                                ),
-                                decoration:
-                                    AppDecoration.txtFillBlack900.copyWith(
-                                  borderRadius:
-                                      BorderRadiusStyle.txtRoundedBorder16,
-                                ),
-                                child: Text(
-                                  "lbl_1".tr,
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Align(
+                              alignment: Alignment.center,
+                              child: Container(
+                                  width: getHorizontalSize(276.00),
+                                  child: RichText(
+                                      text: TextSpan(children: [
+                                        TextSpan(
+                                            text: "lbl_cr_ez_un_compte".tr,
+                                            style: TextStyle(
+                                                color: ColorConstant.black900,
+                                                fontSize: getFontSize(35),
+                                                fontFamily: 'Nexa Bold',
+                                                fontWeight: FontWeight.w700)),
+                                        TextSpan(
+                                            text: " ",
+                                            style: TextStyle(
+                                                color: ColorConstant.black900,
+                                                fontSize: getFontSize(30),
+                                                fontFamily: 'Nexa Bold',
+                                                fontWeight: FontWeight.w700)),
+                                        TextSpan(
+                                            text: "lbl_pour_commencer".tr,
+                                            style: TextStyle(
+                                                color: ColorConstant.black900,
+                                                fontSize: getFontSize(30),
+                                                fontFamily: 'Nexa Light',
+                                                fontWeight: FontWeight.w400))
+                                      ]),
+                                      textAlign: TextAlign.center))),
+                          Align(
+                              alignment: Alignment.center,
+                              child: Padding(
+                                  padding: getPadding(top: 36),
+                                  child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                            width: getSize(33.00),
+                                            padding: getPadding(
+                                                left: 10,
+                                                top: 4,
+                                                right: 10,
+                                                bottom: 4),
+                                            decoration: AppDecoration
+                                                .txtFillBlack900
+                                                .copyWith(
+                                                    borderRadius:
+                                                        BorderRadiusStyle
+                                                            .txtRoundedBorder16),
+                                            child: Text("lbl_1".tr,
+                                                overflow: TextOverflow.ellipsis,
+                                                textAlign: TextAlign.left,
+                                                style: AppStyle.txtNexaBold24)),
+                                        Container(
+                                            height: getVerticalSize(2.00),
+                                            width: getHorizontalSize(67.00),
+                                            margin: getMargin(
+                                                left: 9, top: 19, bottom: 11),
+                                            decoration: BoxDecoration(
+                                                color: ColorConstant.black900)),
+                                        Container(
+                                            width: getSize(33.00),
+                                            margin: getMargin(left: 10),
+                                            padding: getPadding(
+                                                left: 7,
+                                                top: 3,
+                                                right: 7,
+                                                bottom: 3),
+                                            decoration: AppDecoration
+                                                .txtFillBlack900
+                                                .copyWith(
+                                                    borderRadius:
+                                                        BorderRadiusStyle
+                                                            .txtRoundedBorder16),
+                                            child: Text("lbl_2".tr,
+                                                overflow: TextOverflow.ellipsis,
+                                                textAlign: TextAlign.left,
+                                                style: AppStyle.txtNexaBold24))
+                                      ]))),
+                          Spacer(),
+                          Padding(
+                              padding: getPadding(left: 5),
+                              child: Text("msg_compte_instagram".tr,
                                   overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.left,
-                                  style: AppStyle.txtNexaBold24,
-                                ),
-                              ),
-                              Container(
-                                height: getVerticalSize(
-                                  2.00,
-                                ),
-                                width: getHorizontalSize(
-                                  67.00,
-                                ),
-                                margin: getMargin(
-                                  left: 9,
-                                  top: 19,
-                                  bottom: 11,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: ColorConstant.black900,
-                                ),
-                              ),
-                              Container(
-                                margin: getMargin(
-                                  left: 10,
-                                ),
-                                padding: getPadding(
-                                  left: 7,
-                                  top: 3,
-                                  right: 8,
-                                  bottom: 6,
-                                ),
-                                decoration:
-                                    AppDecoration.txtFillBlack900.copyWith(
-                                  borderRadius:
-                                      BorderRadiusStyle.txtRoundedBorder16,
-                                ),
-                                child: Text(
-                                  "lbl_2".tr,
+                                  style: AppStyle.txtNexaBold1802)),
+                          CustomTextFormField(
+                              width: 309,
+                              focusNode: FocusNode(),
+                              controller: controller.group496Controller,
+                              hintText: "lbl_exemple_32".tr,
+                              margin: getMargin(top: 2),
+                              fontStyle: TextFormFieldFontStyle.NexaLight1622),
+                          Padding(
+                              padding: getPadding(left: 5, top: 25),
+                              child: Text("lbl_compte_tiktok".tr,
                                   overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.left,
-                                  style: AppStyle.txtNexaBold24,
-                                ),
-                              ),
-                              Container(
-                                height: getVerticalSize(
-                                  2.00,
-                                ),
-                                width: getHorizontalSize(
-                                  67.00,
-                                ),
-                                margin: getMargin(
-                                  left: 11,
-                                  top: 19,
-                                  bottom: 11,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: ColorConstant.whiteA700,
-                                ),
-                              ),
-                              Container(
-                                margin: getMargin(
-                                  left: 11,
-                                ),
-                                padding: getPadding(
-                                  left: 7,
-                                  top: 4,
-                                  right: 8,
-                                  bottom: 4,
-                                ),
-                                decoration:
-                                    AppDecoration.txtFillWhiteA700.copyWith(
-                                  borderRadius:
-                                      BorderRadiusStyle.txtRoundedBorder16,
-                                ),
-                                child: Text(
-                                  "lbl_3".tr,
-                                  overflow: TextOverflow.ellipsis,
-                                  textAlign: TextAlign.left,
-                                  style: AppStyle.txtNexaBold24Black900,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          width: double.infinity,
-                          margin: getMargin(
-                            left: 23,
-                            top: 43,
-                            right: 23,
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(
-                              getHorizontalSize(
-                                10.00,
-                              ),
-                            ),
-                          ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: getPadding(
-                                  left: 5,
-                                  right: 10,
-                                ),
-                                child: Text(
-                                  "msg_compte_instagra".tr,
-                                  overflow: TextOverflow.ellipsis,
-                                  textAlign: TextAlign.left,
-                                  style: AppStyle.txtNexaBold20,
-                                ),
-                              ),
-                              CustomTextFormField(
-                                width: 343,
-                                focusNode: FocusNode(),
-                                controller: controller.groupThreeController,
-                                hintText: "lbl_exemple_32".tr,
-                                margin: getMargin(
-                                  top: 3,
-                                ),
-                              ),
-                              Padding(
-                                padding: getPadding(
-                                  left: 5,
-                                  top: 28,
-                                  right: 10,
-                                ),
-                                child: Text(
-                                  "lbl_compte_tiktok".tr,
-                                  overflow: TextOverflow.ellipsis,
-                                  textAlign: TextAlign.left,
-                                  style: AppStyle.txtNexaBold20,
-                                ),
-                              ),
-                              CustomTextFormField(
-                                width: 343,
-                                focusNode: FocusNode(),
-                                controller: controller.groupTwoController,
-                                hintText: "lbl_exemple_322".tr,
-                                margin: getMargin(
-                                  top: 4,
-                                ),
-                                textInputAction: TextInputAction.done,
-                              ),
-                            ],
-                          ),
-                        ),
-                        CustomButton(
-                          width: 343,
-                          text: "lbl_suivant".tr.toUpperCase(),
-                          margin: getMargin(
-                            left: 23,
-                            top: 38,
-                            right: 23,
-                          ),
-                          variant: ButtonVariant.OutlineBlack90072,
-                        ),
-                        CustomButton(
-                          width: 343,
-                          text: "lbl_pr_c_dent".tr.toUpperCase(),
-                          margin: getMargin(
-                            left: 23,
-                            top: 24,
-                            right: 23,
-                            bottom: 214,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
+                                  style: AppStyle.txtNexaBold1802)),
+                          CustomTextFormField(
+                              width: 309,
+                              focusNode: FocusNode(),
+                              controller: controller.group495Controller,
+                              hintText: "lbl_exemple_322".tr,
+                              margin: getMargin(top: 3),
+                              fontStyle: TextFormFieldFontStyle.NexaLight1622,
+                              textInputAction: TextInputAction.done),
+                          CustomButton(
+                              height: 44,
+                              width: 309,
+                              text: "lbl_continuer2".tr,
+                              margin: getMargin(top: 34),
+                              padding: ButtonPadding.PaddingAll11,
+                              fontStyle: ButtonFontStyle.NexaBold1802),
+                          CustomButton(
+                              height: 44,
+                              width: 309,
+                              text: "lbl_pr_c_dent".tr,
+                              margin: getMargin(top: 21, bottom: 157),
+                              padding: ButtonPadding.PaddingAll11,
+                              fontStyle: ButtonFontStyle.NexaBold1802)
+                        ])))));
   }
 }

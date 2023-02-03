@@ -1,3 +1,3 @@
-import 'package:taurouf_s_application1/core/app_export.dart';
+import 'package:eatfluence_va/core/app_export.dart';
 
 class ApiClient extends GetConnect {}

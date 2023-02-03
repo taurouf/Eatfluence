@@ -1,36 +1,60 @@
 import 'controller/page_favoris_container_controller.dart';
+import 'package:eatfluence_va/core/app_export.dart';
+import 'package:eatfluence_va/presentation/home_page_influenceur_page/home_page_influenceur_page.dart';
+import 'package:eatfluence_va/presentation/page_favoris_page/page_favoris_page.dart';
+import 'package:eatfluence_va/presentation/page_notifications_page/page_notifications_page.dart';
+import 'package:eatfluence_va/presentation/page_r_servations_page/page_r_servations_page.dart';
+import 'package:eatfluence_va/widgets/custom_bottom_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:taurouf_s_application1/core/app_export.dart';
-import 'package:taurouf_s_application1/presentation/home_page_influenceur_page/home_page_influenceur_page.dart';
-import 'package:taurouf_s_application1/presentation/page_favoris_page/page_favoris_page.dart';
-import 'package:taurouf_s_application1/widgets/custom_bottom_bar.dart';
 
 class PageFavorisContainerScreen
     extends GetWidget<PageFavorisContainerController> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+        top: false,
+        bottom: false,
         child: Scaffold(
             backgroundColor: ColorConstant.whiteA700,
-            body: Obx(() => getCurrentWidget(controller.type.value)),
+            body: Navigator(
+                key: Get.nestedKey(1),
+                initialRoute: AppRoutes.pageFavorisPage,
+                onGenerateRoute: (routeSetting) => GetPageRoute(
+                    page: () => getCurrentPage(routeSetting.name!),
+                    transition: Transition.noTransition)),
             bottomNavigationBar:
                 CustomBottomBar(onChanged: (BottomBarEnum type) {
-              controller.type.value = type;
+              Get.toNamed(getCurrentRoute(type), id: 1);
             })));
   }
 
-  Widget getCurrentWidget(BottomBarEnum type) {
+  String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Imgfavorite:
-        return PageFavorisPage();
-      case BottomBarEnum.Imgvector25X24:
-        return HomePageInfluenceurPage();
-      case BottomBarEnum.Imgcalendar:
-        return getDefaultWidget();
-      case BottomBarEnum.Imgnotification:
-        return getDefaultWidget();
+      case BottomBarEnum.Favoriteblack900:
+        return AppRoutes.pageFavorisPage;
+      case BottomBarEnum.Homewhitea700:
+        return AppRoutes.homePageInfluenceurPage;
+      case BottomBarEnum.Calendar:
+        return AppRoutes.pageRServationsPage;
+      case BottomBarEnum.Notification:
+        return AppRoutes.pageNotificationsPage;
       default:
-        return getDefaultWidget();
+        return "/";
+    }
+  }
+
+  Widget getCurrentPage(String currentRoute) {
+    switch (currentRoute) {
+      case AppRoutes.pageFavorisPage:
+        return PageFavorisPage();
+      case AppRoutes.homePageInfluenceurPage:
+        return HomePageInfluenceurPage();
+      case AppRoutes.pageRServationsPage:
+        return PageRServationsPage();
+      case AppRoutes.pageNotificationsPage:
+        return PageNotificationsPage();
+      default:
+        return DefaultWidget();
     }
   }
 }

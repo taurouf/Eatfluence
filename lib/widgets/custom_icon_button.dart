@@ -1,5 +1,5 @@
+import 'package:eatfluence_va/core/app_export.dart';
 import 'package:flutter/material.dart';
-import 'package:taurouf_s_application1/core/app_export.dart';
 
 class CustomIconButton extends StatelessWidget {
   CustomIconButton(
@@ -8,8 +8,8 @@ class CustomIconButton extends StatelessWidget {
       this.variant,
       this.alignment,
       this.margin,
-      this.height,
       this.width,
+      this.height,
       this.child,
       this.onTap});
 
@@ -23,9 +23,9 @@ class CustomIconButton extends StatelessWidget {
 
   EdgeInsetsGeometry? margin;
 
-  double? height;
-
   double? width;
+
+  double? height;
 
   Widget? child;
 
@@ -45,10 +45,7 @@ class CustomIconButton extends StatelessWidget {
     return Padding(
       padding: margin ?? EdgeInsets.zero,
       child: IconButton(
-        constraints: BoxConstraints(
-          minHeight: getSize(height ?? 0),
-          minWidth: getSize(width ?? 0),
-        ),
+        iconSize: getSize(height ?? 0),
         padding: EdgeInsets.all(0),
         icon: Container(
           alignment: Alignment.center,
@@ -72,6 +69,14 @@ class CustomIconButton extends StatelessWidget {
 
   _setPadding() {
     switch (padding) {
+      case IconButtonPadding.PaddingAll9:
+        return getPadding(
+          all: 9,
+        );
+      case IconButtonPadding.RoundedBorder7:
+        return getPadding(
+          all: 1,
+        );
       default:
         return getPadding(
           all: 5,
@@ -81,6 +86,14 @@ class CustomIconButton extends StatelessWidget {
 
   _setColor() {
     switch (variant) {
+      case IconButtonVariant.FillBlack90001:
+        return ColorConstant.black90001;
+      case IconButtonVariant.Outline:
+        return ColorConstant.whiteA7007f;
+      case IconButtonVariant.FillGray200:
+        return ColorConstant.gray200;
+      case IconButtonVariant.FillBlack900:
+        return ColorConstant.black900;
       default:
         return ColorConstant.whiteA700;
     }
@@ -88,18 +101,28 @@ class CustomIconButton extends StatelessWidget {
 
   _setBorderRadius() {
     switch (shape) {
-      case IconButtonShape.RoundedBorder19:
-        return BorderRadius.circular(
-          getHorizontalSize(
-            19.50,
-          ),
-        );
-      default:
+      case IconButtonShape.CircleBorder13:
         return BorderRadius.circular(
           getHorizontalSize(
             13.00,
           ),
         );
+      case IconButtonShape.RoundedBorder19:
+        return BorderRadius.circular(
+          getHorizontalSize(
+            19.00,
+          ),
+        );
+      case IconButtonShape.RoundedBorder10:
+        return BorderRadius.circular(
+          getHorizontalSize(
+            10.00,
+          ),
+        );
+      case IconButtonShape.RoundedBorder7:
+        return null;
+      default:
+        return null;
     }
   }
 }
@@ -107,12 +130,20 @@ class CustomIconButton extends StatelessWidget {
 enum IconButtonShape {
   CircleBorder13,
   RoundedBorder19,
+  RoundedBorder7,
+  RoundedBorder10,
 }
 
 enum IconButtonPadding {
   PaddingAll5,
+  PaddingAll9,
+  RoundedBorder7,
 }
 
 enum IconButtonVariant {
   FillWhiteA700,
+  FillBlack90001,
+  Outline,
+  FillGray200,
+  FillBlack900,
 }

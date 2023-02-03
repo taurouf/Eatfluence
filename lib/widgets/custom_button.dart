@@ -1,5 +1,5 @@
+import 'package:eatfluence_va/core/app_export.dart';
 import 'package:flutter/material.dart';
-import 'package:taurouf_s_application1/core/app_export.dart';
 
 class CustomButton extends StatelessWidget {
   CustomButton(
@@ -8,12 +8,13 @@ class CustomButton extends StatelessWidget {
       this.variant,
       this.fontStyle,
       this.alignment,
+      this.margin,
       this.onTap,
       this.width,
-      this.margin,
+      this.height,
+      this.text,
       this.prefixWidget,
-      this.suffixWidget,
-      this.text});
+      this.suffixWidget});
 
   ButtonShape? shape;
 
@@ -25,73 +26,115 @@ class CustomButton extends StatelessWidget {
 
   Alignment? alignment;
 
+  EdgeInsetsGeometry? margin;
+
   VoidCallback? onTap;
 
   double? width;
 
-  EdgeInsetsGeometry? margin;
+  double? height;
+
+  String? text;
 
   Widget? prefixWidget;
 
   Widget? suffixWidget;
 
-  String? text;
-
   @override
   Widget build(BuildContext context) {
     return alignment != null
         ? Align(
-            alignment: alignment ?? Alignment.center,
+            alignment: alignment!,
             child: _buildButtonWidget(),
           )
         : _buildButtonWidget();
   }
 
   _buildButtonWidget() {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: getHorizontalSize(width ?? 0),
-        margin: margin,
-        padding: _setPadding(),
-        decoration: _buildDecoration(),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            prefixWidget ?? SizedBox(),
-            Text(
-              text ?? "",
-              textAlign: TextAlign.center,
-              style: _setFontStyle(),
-            ),
-            suffixWidget ?? SizedBox(),
-          ],
-        ),
+    return Padding(
+      padding: margin ?? EdgeInsets.zero,
+      child: TextButton(
+        onPressed: onTap,
+        style: _buildTextButtonStyle(),
+        child: _buildButtonWithOrWithoutIcon(),
       ),
     );
   }
 
-  _buildDecoration() {
-    return BoxDecoration(
-      color: _setColor(),
-      borderRadius: _setBorderRadius(),
-      boxShadow: _setBoxShadow(),
+  _buildButtonWithOrWithoutIcon() {
+    if (prefixWidget != null || suffixWidget != null) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          prefixWidget ?? SizedBox(),
+          Text(
+            text ?? "",
+            textAlign: TextAlign.center,
+            style: _setFontStyle(),
+          ),
+          suffixWidget ?? SizedBox(),
+        ],
+      );
+    } else {
+      return Text(
+        text ?? "",
+        textAlign: TextAlign.center,
+        style: _setFontStyle(),
+      );
+    }
+  }
+
+  _buildTextButtonStyle() {
+    return TextButton.styleFrom(
+      fixedSize: Size(
+        getHorizontalSize(width ?? 0),
+        getVerticalSize(height ?? 0),
+      ),
+      padding: _setPadding(),
+      backgroundColor: _setColor(),
+      side: _setTextButtonBorder(),
+      shadowColor: _setTextButtonShadowColor(),
+      shape: RoundedRectangleBorder(
+        borderRadius: _setBorderRadius(),
+      ),
     );
   }
 
   _setPadding() {
     switch (padding) {
-      case ButtonPadding.PaddingAll21:
+      case ButtonPadding.PaddingAll18:
         return getPadding(
-          all: 21,
+          all: 18,
         );
-      case ButtonPadding.PaddingAll7:
+      case ButtonPadding.PaddingAll6:
         return getPadding(
-          all: 7,
+          all: 6,
+        );
+      case ButtonPadding.PaddingAll11:
+        return getPadding(
+          all: 11,
+        );
+      case ButtonPadding.PaddingT11:
+        return getPadding(
+          top: 11,
+          right: 10,
+          bottom: 11,
+        );
+      case ButtonPadding.PaddingT3:
+        return getPadding(
+          left: 3,
+          top: 3,
+          bottom: 3,
+        );
+      case ButtonPadding.PaddingT6:
+        return getPadding(
+          left: 6,
+          top: 6,
+          bottom: 6,
         );
       default:
         return getPadding(
-          all: 14,
+          all: 3,
         );
     }
   }
@@ -102,12 +145,52 @@ class CustomButton extends StatelessWidget {
         return ColorConstant.whiteA700;
       case ButtonVariant.OutlineBlack9003f:
         return ColorConstant.black900;
-      case ButtonVariant.OutlineBlack90072:
+      case ButtonVariant.OutlineBlack9003f_1:
         return ColorConstant.black900;
-      case ButtonVariant.FillWhiteA700:
-        return ColorConstant.whiteA700;
+      case ButtonVariant.FillWhiteA700cc:
+        return ColorConstant.whiteA700Cc;
+      case ButtonVariant.FillBlack900cc:
+        return ColorConstant.black900Cc;
+      case ButtonVariant.OutlineLightgreen50001:
+      case ButtonVariant.OutlineBlack900_1:
+        return null;
       default:
         return ColorConstant.black900;
+    }
+  }
+
+  _setTextButtonBorder() {
+    switch (variant) {
+      case ButtonVariant.OutlineLightgreen50001:
+        return BorderSide(
+          color: ColorConstant.lightGreen50001,
+          width: getHorizontalSize(
+            1.00,
+          ),
+        );
+      case ButtonVariant.OutlineBlack900_1:
+        return BorderSide(
+          color: ColorConstant.black900,
+          width: getHorizontalSize(
+            1.00,
+          ),
+        );
+      default:
+        return null;
+        ;
+    }
+  }
+
+  _setTextButtonShadowColor() {
+    switch (variant) {
+      case ButtonVariant.OutlineBlack90033:
+        return ColorConstant.black90033;
+      case ButtonVariant.OutlineBlack9003f:
+        return ColorConstant.black9003f;
+      case ButtonVariant.OutlineBlack9003f_1:
+        return ColorConstant.black9003f;
+      default:
+        return null;
     }
   }
 
@@ -122,7 +205,7 @@ class CustomButton extends StatelessWidget {
       case ButtonShape.RoundedBorder17:
         return BorderRadius.circular(
           getHorizontalSize(
-            17.50,
+            17.00,
           ),
         );
       case ButtonShape.RoundedBorder20:
@@ -131,72 +214,20 @@ class CustomButton extends StatelessWidget {
             20.00,
           ),
         );
+      case ButtonShape.RoundedBorder14:
+        return BorderRadius.circular(
+          getHorizontalSize(
+            14.00,
+          ),
+        );
       case ButtonShape.Square:
         return BorderRadius.circular(0);
       default:
         return BorderRadius.circular(
           getHorizontalSize(
-            10.00,
+            9.00,
           ),
         );
-    }
-  }
-
-  _setBoxShadow() {
-    switch (variant) {
-      case ButtonVariant.OutlineBlack90033:
-        return [
-          BoxShadow(
-            color: ColorConstant.black90033,
-            spreadRadius: getHorizontalSize(
-              2.00,
-            ),
-            blurRadius: getHorizontalSize(
-              2.00,
-            ),
-            offset: Offset(
-              0,
-              4,
-            ),
-          )
-        ];
-      case ButtonVariant.OutlineBlack9003f:
-        return [
-          BoxShadow(
-            color: ColorConstant.black9003f,
-            spreadRadius: getHorizontalSize(
-              2.00,
-            ),
-            blurRadius: getHorizontalSize(
-              2.00,
-            ),
-            offset: Offset(
-              0,
-              4,
-            ),
-          )
-        ];
-      case ButtonVariant.OutlineBlack90072:
-        return [
-          BoxShadow(
-            color: ColorConstant.black90072,
-            spreadRadius: getHorizontalSize(
-              2.00,
-            ),
-            blurRadius: getHorizontalSize(
-              2.00,
-            ),
-            offset: Offset(
-              3,
-              6,
-            ),
-          )
-        ];
-      case ButtonVariant.FillBlack900:
-      case ButtonVariant.FillWhiteA700:
-        return null;
-      default:
-        return null;
     }
   }
 
@@ -209,7 +240,7 @@ class CustomButton extends StatelessWidget {
             20,
           ),
           fontFamily: 'Nexa Bold',
-          fontWeight: FontWeight.w400,
+          fontWeight: FontWeight.w700,
         );
       case ButtonFontStyle.NexaBold20Pink50:
         return TextStyle(
@@ -218,16 +249,79 @@ class CustomButton extends StatelessWidget {
             20,
           ),
           fontFamily: 'Nexa Bold',
-          fontWeight: FontWeight.w400,
+          fontWeight: FontWeight.w700,
+        );
+      case ButtonFontStyle.NexaBold1808:
+        return TextStyle(
+          color: ColorConstant.whiteA700,
+          fontSize: getFontSize(
+            18.08,
+          ),
+          fontFamily: 'Nexa Bold',
+          fontWeight: FontWeight.w700,
+        );
+      case ButtonFontStyle.NexaBold1802:
+        return TextStyle(
+          color: ColorConstant.whiteA700,
+          fontSize: getFontSize(
+            18.02,
+          ),
+          fontFamily: 'Nexa Bold',
+          fontWeight: FontWeight.w700,
         );
       case ButtonFontStyle.NexaBook12:
         return TextStyle(
-          color: ColorConstant.gray700,
+          color: ColorConstant.gray80001,
           fontSize: getFontSize(
             12,
           ),
           fontFamily: 'Nexa',
+          fontWeight: FontWeight.w300,
+        );
+      case ButtonFontStyle.NexaBook12WhiteA700:
+        return TextStyle(
+          color: ColorConstant.whiteA700,
+          fontSize: getFontSize(
+            12,
+          ),
+          fontFamily: 'Nexa',
+          fontWeight: FontWeight.w300,
+        );
+      case ButtonFontStyle.NexaBold12:
+        return TextStyle(
+          color: ColorConstant.lightGreen50001,
+          fontSize: getFontSize(
+            12,
+          ),
+          fontFamily: 'Nexa Bold',
+          fontWeight: FontWeight.w700,
+        );
+      case ButtonFontStyle.NexaBold12Black900:
+        return TextStyle(
+          color: ColorConstant.black900,
+          fontSize: getFontSize(
+            12,
+          ),
+          fontFamily: 'Nexa Bold',
+          fontWeight: FontWeight.w700,
+        );
+      case ButtonFontStyle.NexaLight11:
+        return TextStyle(
+          color: ColorConstant.black900,
+          fontSize: getFontSize(
+            11,
+          ),
+          fontFamily: 'Nexa Light',
           fontWeight: FontWeight.w400,
+        );
+      case ButtonFontStyle.NexaBold15:
+        return TextStyle(
+          color: ColorConstant.whiteA700,
+          fontSize: getFontSize(
+            15,
+          ),
+          fontFamily: 'Nexa Bold',
+          fontWeight: FontWeight.w700,
         );
       default:
         return TextStyle(
@@ -236,7 +330,7 @@ class CustomButton extends StatelessWidget {
             20,
           ),
           fontFamily: 'Nexa Bold',
-          fontWeight: FontWeight.w400,
+          fontWeight: FontWeight.w700,
         );
     }
   }
@@ -244,29 +338,44 @@ class CustomButton extends StatelessWidget {
 
 enum ButtonShape {
   Square,
-  RoundedBorder10,
   RoundedBorder30,
   RoundedBorder17,
+  RoundedBorder10,
   RoundedBorder20,
+  RoundedBorder14,
 }
 
 enum ButtonPadding {
-  PaddingAll14,
-  PaddingAll21,
-  PaddingAll7,
+  PaddingAll18,
+  PaddingAll6,
+  PaddingAll11,
+  PaddingT11,
+  PaddingAll3,
+  PaddingT3,
+  PaddingT6,
 }
 
 enum ButtonVariant {
-  FillBlack900,
   OutlineBlack90033,
+  FillBlack900,
   OutlineBlack9003f,
-  OutlineBlack90072,
-  FillWhiteA700,
+  OutlineBlack9003f_1,
+  FillWhiteA700cc,
+  FillBlack900cc,
+  OutlineLightgreen50001,
+  OutlineBlack900_1,
 }
 
 enum ButtonFontStyle {
-  NexaBold20WhiteA700,
   NexaBold20,
   NexaBold20Pink50,
+  NexaBold20WhiteA700,
+  NexaBold1808,
+  NexaBold1802,
   NexaBook12,
+  NexaBook12WhiteA700,
+  NexaBold12,
+  NexaBold12Black900,
+  NexaLight11,
+  NexaBold15,
 }

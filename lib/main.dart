@@ -20,10 +20,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        visualDensity: VisualDensity.standard,
+      ),
       translations: AppLocalization(),
       locale: Get.deviceLocale, //for setting localization strings
       fallbackLocale: Locale('en', 'US'),
-      title: 'taurouf_s_application1',
+      title: 'eatfluence_va',
       initialBinding: InitialBindings(),
       initialRoute: AppRoutes.initialRoute,
       getPages: AppRoutes.pages,

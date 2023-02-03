@@ -1,36 +1,20 @@
 import 'package:get/get.dart';
-import 'package:taurouf_s_application1/data/models/selectionPopupModel/selection_popup_model.dart';
+import 'package:eatfluence_va/data/models/selectionPopupModel/selection_popup_model.dart';
 
 class HomePageInfluenceurModel {
   RxList<SelectionPopupModel> dropdownItemList = [
     SelectionPopupModel(
       id: 1,
-      title: "test",
+      title: "Item One",
       isSelected: true,
     ),
     SelectionPopupModel(
       id: 2,
-      title: "test1",
+      title: "Item Two",
     ),
     SelectionPopupModel(
       id: 3,
-      title: "test2",
-    )
-  ].obs;
-
-  RxList<SelectionPopupModel> dropdownItemList1 = [
-    SelectionPopupModel(
-      id: 1,
-      title: "test",
-      isSelected: true,
-    ),
-    SelectionPopupModel(
-      id: 2,
-      title: "test1",
-    ),
-    SelectionPopupModel(
-      id: 3,
-      title: "test2",
+      title: "Item Three",
     )
   ].obs;
 }

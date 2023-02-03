@@ -1,5 +1,5 @@
+import 'package:eatfluence_va/core/app_export.dart';
 import 'package:flutter/material.dart';
-import 'package:taurouf_s_application1/core/app_export.dart';
 
 class CustomTextFormField extends StatelessWidget {
   CustomTextFormField(
@@ -14,6 +14,7 @@ class CustomTextFormField extends StatelessWidget {
       this.focusNode,
       this.isObscureText = false,
       this.textInputAction = TextInputAction.next,
+      this.textInputType = TextInputType.text,
       this.maxLines,
       this.hintText,
       this.prefix,
@@ -43,6 +44,8 @@ class CustomTextFormField extends StatelessWidget {
   bool? isObscureText;
 
   TextInputAction? textInputAction;
+
+  TextInputType? textInputType;
 
   int? maxLines;
 
@@ -78,6 +81,7 @@ class CustomTextFormField extends StatelessWidget {
         style: _setFontStyle(),
         obscureText: isObscureText!,
         textInputAction: textInputAction,
+        keyboardType: textInputType,
         maxLines: maxLines ?? 1,
         decoration: _buildDecoration(),
         validator: validator,
@@ -105,11 +109,20 @@ class CustomTextFormField extends StatelessWidget {
 
   _setFontStyle() {
     switch (fontStyle) {
+      case TextFormFieldFontStyle.NexaLight1622:
+        return TextStyle(
+          color: ColorConstant.gray800,
+          fontSize: getFontSize(
+            16.22,
+          ),
+          fontFamily: 'Nexa Light',
+          fontWeight: FontWeight.w400,
+        );
       default:
         return TextStyle(
           color: ColorConstant.gray800,
           fontSize: getFontSize(
-            18,
+            16.27,
           ),
           fontFamily: 'Nexa Light',
           fontWeight: FontWeight.w400,
@@ -130,7 +143,7 @@ class CustomTextFormField extends StatelessWidget {
 
   _setBorderStyle() {
     switch (variant) {
-      default:
+      case TextFormFieldVariant.OutlineBlack900:
         return OutlineInputBorder(
           borderRadius: _setOutlineBorderRadius(),
           borderSide: BorderSide(
@@ -138,12 +151,26 @@ class CustomTextFormField extends StatelessWidget {
             width: 2,
           ),
         );
+      case TextFormFieldVariant.None:
+        return InputBorder.none;
+      default:
+        return OutlineInputBorder(
+          borderRadius: _setOutlineBorderRadius(),
+          borderSide: BorderSide(
+            color: ColorConstant.black900,
+            width: 1,
+          ),
+        );
     }
   }
 
   _setFilled() {
     switch (variant) {
+      case TextFormFieldVariant.OutlineBlack900_1:
+        return false;
       case TextFormFieldVariant.OutlineBlack900:
+        return false;
+      case TextFormFieldVariant.None:
         return false;
       default:
         return false;
@@ -154,7 +181,10 @@ class CustomTextFormField extends StatelessWidget {
     switch (padding) {
       default:
         return getPadding(
-          all: 15,
+          left: 10,
+          top: 13,
+          right: 10,
+          bottom: 13,
         );
     }
   }
@@ -165,13 +195,16 @@ enum TextFormFieldShape {
 }
 
 enum TextFormFieldPadding {
-  PaddingAll15,
+  PaddingAll11,
 }
 
 enum TextFormFieldVariant {
+  None,
+  OutlineBlack900_1,
   OutlineBlack900,
 }
 
 enum TextFormFieldFontStyle {
-  NexaLight18,
+  NexaLight1627,
+  NexaLight1622,
 }

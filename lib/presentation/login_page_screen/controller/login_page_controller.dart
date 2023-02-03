@@ -1,5 +1,5 @@
-import '/core/app_export.dart';
-import 'package:taurouf_s_application1/presentation/login_page_screen/models/login_page_model.dart';
+import 'package:eatfluence_va/core/app_export.dart';
+import 'package:eatfluence_va/presentation/login_page_screen/models/login_page_model.dart';
 
 class LoginPageController extends GetxController {
   Rx<LoginPageModel> loginPageModelObj = LoginPageModel().obs;

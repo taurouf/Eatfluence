@@ -1,5 +1,5 @@
+import 'package:eatfluence_va/core/app_export.dart';
 import 'package:flutter/material.dart';
-import 'package:taurouf_s_application1/core/app_export.dart';
 
 class CustomBottomBar extends StatelessWidget {
   CustomBottomBar({this.onChanged});
@@ -8,20 +8,20 @@ class CustomBottomBar extends StatelessWidget {
 
   List<BottomMenuModel> bottomMenuList = [
     BottomMenuModel(
-      icon: ImageConstant.imgFavorite,
-      type: BottomBarEnum.Imgfavorite,
+      icon: ImageConstant.imgFavoriteBlack900,
+      type: BottomBarEnum.Favoriteblack900,
     ),
     BottomMenuModel(
-      icon: ImageConstant.imgVector25X24,
-      type: BottomBarEnum.Imgvector25X24,
+      icon: ImageConstant.imgHomeWhiteA700,
+      type: BottomBarEnum.Homewhitea700,
     ),
     BottomMenuModel(
       icon: ImageConstant.imgCalendar,
-      type: BottomBarEnum.Imgcalendar,
+      type: BottomBarEnum.Calendar,
     ),
     BottomMenuModel(
       icon: ImageConstant.imgNotification,
-      type: BottomBarEnum.Imgnotification,
+      type: BottomBarEnum.Notification,
     )
   ];
 
@@ -32,7 +32,7 @@ class CustomBottomBar extends StatelessWidget {
     return Obx(
       () => Container(
         decoration: BoxDecoration(
-          color: ColorConstant.black901,
+          color: ColorConstant.black90001,
           borderRadius: BorderRadius.circular(
             getHorizontalSize(
               30.00,
@@ -48,7 +48,7 @@ class CustomBottomBar extends StatelessWidget {
           type: BottomNavigationBarType.fixed,
           items: List.generate(bottomMenuList.length, (index) {
             return BottomNavigationBarItem(
-              icon: CommonImageView(
+              icon: CustomImageView(
                 svgPath: bottomMenuList[index].icon,
                 height: getVerticalSize(
                   25.00,
@@ -56,6 +56,7 @@ class CustomBottomBar extends StatelessWidget {
                 width: getHorizontalSize(
                   24.00,
                 ),
+                color: ColorConstant.whiteA700,
               ),
               activeIcon: Container(
                 height: getVerticalSize(
@@ -68,7 +69,7 @@ class CustomBottomBar extends StatelessWidget {
                   alignment: Alignment.bottomCenter,
                   children: [
                     Align(
-                      alignment: Alignment.centerLeft,
+                      alignment: Alignment.center,
                       child: Container(
                         height: getVerticalSize(
                           38.00,
@@ -86,24 +87,18 @@ class CustomBottomBar extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Align(
+                    CustomImageView(
+                      svgPath: bottomMenuList[index].icon,
+                      height: getVerticalSize(
+                        26.00,
+                      ),
+                      width: getHorizontalSize(
+                        30.00,
+                      ),
+                      color: ColorConstant.black900,
                       alignment: Alignment.bottomCenter,
-                      child: Padding(
-                        padding: getPadding(
-                          left: 13,
-                          top: 10,
-                          right: 13,
-                          bottom: 5,
-                        ),
-                        child: CommonImageView(
-                          svgPath: bottomMenuList[index].icon,
-                          height: getVerticalSize(
-                            26.00,
-                          ),
-                          width: getHorizontalSize(
-                            30.00,
-                          ),
-                        ),
+                      margin: getMargin(
+                        bottom: 5,
                       ),
                     ),
                   ],
@@ -123,10 +118,10 @@ class CustomBottomBar extends StatelessWidget {
 }
 
 enum BottomBarEnum {
-  Imgfavorite,
-  Imgvector25X24,
-  Imgcalendar,
-  Imgnotification,
+  Favoriteblack900,
+  Homewhitea700,
+  Calendar,
+  Notification,
 }
 
 class BottomMenuModel {
@@ -137,24 +132,26 @@ class BottomMenuModel {
   BottomBarEnum type;
 }
 
-///Set default widget when screen is not configured with bottom menu
-Widget getDefaultWidget() {
-  return Container(
-    color: Colors.white,
-    padding: EdgeInsets.all(10),
-    child: Center(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'Please replace the respective Widget here',
-            style: TextStyle(
-              fontSize: 18,
+class DefaultWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      padding: EdgeInsets.all(10),
+      child: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Please replace the respective Widget here',
+              style: TextStyle(
+                fontSize: 18,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
-    ),
-  );
+    );
+  }
 }

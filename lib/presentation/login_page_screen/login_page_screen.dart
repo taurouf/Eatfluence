@@ -1,230 +1,127 @@
 import 'controller/login_page_controller.dart';
+import 'package:eatfluence_va/core/app_export.dart';
+import 'package:eatfluence_va/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-import 'package:taurouf_s_application1/core/app_export.dart';
-import 'package:taurouf_s_application1/widgets/custom_button.dart';
 
 class LoginPageScreen extends GetWidget<LoginPageController> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        backgroundColor: ColorConstant.whiteA700,
-        body: Container(
-          width: size.width,
-          child: SingleChildScrollView(
-            child: Container(
-              height: size.height,
-              width: size.width,
-              child: Stack(
-                alignment: Alignment.centerLeft,
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: CommonImageView(
-                      imagePath: ImageConstant.imgDegradefond,
-                      height: getVerticalSize(
-                        844.00,
-                      ),
-                      width: getHorizontalSize(
-                        390.00,
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
+        top: false,
+        bottom: false,
+        child: Scaffold(
+            extendBody: true,
+            extendBodyBehindAppBar: true,
+            backgroundColor: ColorConstant.whiteA700,
+            body: Container(
+                width: size.width,
+                height: size.height,
+                decoration: BoxDecoration(
+                    color: ColorConstant.whiteA700,
+                    image: DecorationImage(
+                        image: AssetImage(ImageConstant.imgLoginpageone),
+                        fit: BoxFit.cover)),
+                child: Container(
+                    width: size.width,
+                    padding: getPadding(left: 19, top: 88, right: 19),
                     child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: getPadding(
-                            left: 19,
-                            top: 88,
-                            right: 19,
-                          ),
-                          child: CommonImageView(
-                            imagePath: ImageConstant.imgLogovertical,
-                            height: getVerticalSize(
-                              182.00,
-                            ),
-                            width: getHorizontalSize(
-                              352.00,
-                            ),
-                          ),
-                        ),
-                        CustomButton(
-                          width: 315,
-                          text: "lbl_connexion".tr,
-                          margin: getMargin(
-                            left: 19,
-                            top: 66,
-                            right: 19,
-                          ),
-                          variant: ButtonVariant.OutlineBlack90033,
-                          shape: ButtonShape.RoundedBorder30,
-                          padding: ButtonPadding.PaddingAll21,
-                          fontStyle: ButtonFontStyle.NexaBold20,
-                        ),
-                        Container(
-                          height: getVerticalSize(
-                            1.00,
-                          ),
-                          width: getHorizontalSize(
-                            141.00,
-                          ),
-                          margin: getMargin(
-                            left: 19,
-                            top: 34,
-                            right: 19,
-                          ),
-                          decoration: BoxDecoration(
-                            color: ColorConstant.black900,
-                          ),
-                        ),
-                        Container(
-                          height: getVerticalSize(
-                            206.00,
-                          ),
-                          width: getHorizontalSize(
-                            380.00,
-                          ),
-                          margin: getMargin(
-                            top: 30,
-                            right: 10,
-                            bottom: 174,
-                          ),
-                          child: Stack(
-                            alignment: Alignment.topCenter,
-                            children: [
-                              Align(
-                                alignment: Alignment.center,
-                                child: Container(
-                                  height: getVerticalSize(
-                                    206.00,
-                                  ),
-                                  width: getHorizontalSize(
-                                    340.00,
-                                  ),
-                                  margin: getMargin(
-                                    left: 24,
-                                    right: 16,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: ColorConstant.whiteA7008c,
-                                    borderRadius: BorderRadius.circular(
-                                      getHorizontalSize(
-                                        45.00,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Align(
-                                alignment: Alignment.topCenter,
-                                child: Padding(
-                                  padding: getPadding(
-                                    left: 28,
-                                    top: 15,
-                                    right: 28,
-                                    bottom: 15,
-                                  ),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Align(
-                                        alignment: Alignment.center,
-                                        child: Padding(
-                                          padding: getPadding(
-                                            left: 103,
-                                            right: 102,
-                                          ),
-                                          child: Text(
-                                            "lbl_vous_tes".tr,
-                                            overflow: TextOverflow.ellipsis,
-                                            textAlign: TextAlign.left,
-                                            style: AppStyle.txtNexaBook23,
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin: getMargin(
-                                          top: 17,
-                                        ),
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          CustomImageView(
+                              imagePath: ImageConstant.imgLogoverticale,
+                              height: getVerticalSize(182.00),
+                              width: getHorizontalSize(352.00)),
+                          CustomButton(
+                              height: 62,
+                              width: 315,
+                              text: "lbl_connexion".tr,
+                              margin: getMargin(top: 66),
+                              variant: ButtonVariant.OutlineBlack90033,
+                              shape: ButtonShape.RoundedBorder30,
+                              padding: ButtonPadding.PaddingAll18,
+                              fontStyle: ButtonFontStyle.NexaBold20),
+                          Container(
+                              height: getVerticalSize(1.00),
+                              width: getHorizontalSize(141.00),
+                              margin: getMargin(top: 34),
+                              decoration:
+                                  BoxDecoration(color: ColorConstant.black900)),
+                          Container(
+                              width: getHorizontalSize(340.00),
+                              margin: getMargin(
+                                  left: 5, top: 30, right: 7, bottom: 5),
+                              padding: getPadding(
+                                  left: 12, top: 9, right: 12, bottom: 9),
+                              decoration: AppDecoration.fillWhiteA7008c
+                                  .copyWith(
+                                      borderRadius:
+                                          BorderRadiusStyle.roundedBorder45),
+                              child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text("lbl_vous_tes".tr,
+                                        overflow: TextOverflow.ellipsis,
+                                        textAlign: TextAlign.left,
+                                        style: AppStyle.txtNexaBook23Black900),
+                                    Container(
+                                        margin: getMargin(left: 1, top: 11),
+                                        padding: getPadding(top: 6, bottom: 6),
                                         decoration: AppDecoration
                                             .outlineBlack9003f
                                             .copyWith(
-                                          borderRadius:
-                                              BorderRadiusStyle.roundedBorder23,
-                                        ),
+                                                borderRadius: BorderRadiusStyle
+                                                    .roundedBorder23),
                                         child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            CustomButton(
-                                              width: 138,
-                                              text: "lbl_influenceur".tr,
-                                              margin: getMargin(
-                                                left: 7,
-                                                top: 6,
-                                                bottom: 6,
-                                              ),
-                                              shape:
-                                                  ButtonShape.RoundedBorder17,
-                                              padding:
-                                                  ButtonPadding.PaddingAll7,
-                                              fontStyle: ButtonFontStyle
-                                                  .NexaBold20Pink50,
-                                            ),
-                                            Padding(
-                                              padding: getPadding(
-                                                top: 14,
-                                                right: 19,
-                                                bottom: 12,
-                                              ),
-                                              child: Text(
-                                                "lbl_restaurateur".tr,
-                                                overflow: TextOverflow.ellipsis,
-                                                textAlign: TextAlign.left,
-                                                style: AppStyle.txtNexaBook20,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      CustomButton(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
+                                            children: [
+                                              CustomButton(
+                                                  height: 35,
+                                                  width: 138,
+                                                  text: "lbl_influenceur".tr,
+                                                  shape: ButtonShape
+                                                      .RoundedBorder17,
+                                                  padding:
+                                                      ButtonPadding.PaddingAll6,
+                                                  fontStyle: ButtonFontStyle
+                                                      .NexaBold20Pink50),
+                                              GestureDetector(
+                                                  onTap: () {
+                                                    onTapTxtRestaurateur();
+                                                  },
+                                                  child: Padding(
+                                                      padding: getPadding(
+                                                          top: 2, bottom: 1),
+                                                      child: Text(
+                                                          "lbl_restaurateur".tr,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          textAlign:
+                                                              TextAlign.left,
+                                                          style: AppStyle
+                                                              .txtNexaBook20Black900)))
+                                            ])),
+                                    CustomButton(
+                                        height: 61,
                                         width: 315,
                                         text: "lbl_inscription".tr,
-                                        margin: getMargin(
-                                          top: 16,
-                                        ),
+                                        margin: getMargin(top: 16, bottom: 16),
                                         variant:
                                             ButtonVariant.OutlineBlack9003f,
                                         shape: ButtonShape.RoundedBorder30,
-                                        padding: ButtonPadding.PaddingAll21,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
+                                        padding: ButtonPadding.PaddingAll18,
+                                        onTap: onTapInscription)
+                                  ]))
+                        ])))));
+  }
+
+  onTapTxtRestaurateur() {
+    Get.toNamed(AppRoutes.animationScreen);
+  }
+
+  onTapInscription() {
+// TODO: implement Actions
   }
 }
