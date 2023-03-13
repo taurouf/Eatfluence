@@ -1,5 +1,5 @@
-import 'package:eatfluence_va/core/app_export.dart';
-import 'package:eatfluence_va/data/apiClient/api_client.dart';
+import 'package:taurouf_s_application9/core/app_export.dart';
+import 'package:taurouf_s_application9/data/apiClient/api_client.dart';
 
 class InitialBindings extends Bindings {
   @override

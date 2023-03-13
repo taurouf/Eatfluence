@@ -1,76 +1,107 @@
-import 'package:eatfluence_va/presentation/login_page_one_screen/login_page_one_screen.dart';
-import 'package:eatfluence_va/presentation/login_page_one_screen/binding/login_page_one_binding.dart';
-import 'package:eatfluence_va/presentation/animation_one_screen/animation_one_screen.dart';
-import 'package:eatfluence_va/presentation/animation_one_screen/binding/animation_one_binding.dart';
-import 'package:eatfluence_va/presentation/connexion_one_screen/connexion_one_screen.dart';
-import 'package:eatfluence_va/presentation/connexion_one_screen/binding/connexion_one_binding.dart';
-import 'package:eatfluence_va/presentation/splash_screen_one_screen/splash_screen_one_screen.dart';
-import 'package:eatfluence_va/presentation/splash_screen_one_screen/binding/splash_screen_one_binding.dart';
-import 'package:eatfluence_va/presentation/inscription_nine_screen/inscription_nine_screen.dart';
-import 'package:eatfluence_va/presentation/inscription_nine_screen/binding/inscription_nine_binding.dart';
-import 'package:eatfluence_va/presentation/inscription_two_screen/inscription_two_screen.dart';
-import 'package:eatfluence_va/presentation/inscription_two_screen/binding/inscription_two_binding.dart';
-import 'package:eatfluence_va/presentation/page_favoris_container_screen/page_favoris_container_screen.dart';
-import 'package:eatfluence_va/presentation/page_favoris_container_screen/binding/page_favoris_container_binding.dart';
-import 'package:eatfluence_va/presentation/page_profil_screen/page_profil_screen.dart';
-import 'package:eatfluence_va/presentation/page_profil_screen/binding/page_profil_binding.dart';
-import 'package:eatfluence_va/presentation/page_restaurant_screen/page_restaurant_screen.dart';
-import 'package:eatfluence_va/presentation/page_restaurant_screen/binding/page_restaurant_binding.dart';
-import 'package:eatfluence_va/presentation/animation_screen/animation_screen.dart';
-import 'package:eatfluence_va/presentation/animation_screen/binding/animation_binding.dart';
-import 'package:eatfluence_va/presentation/connexion_screen/connexion_screen.dart';
-import 'package:eatfluence_va/presentation/connexion_screen/binding/connexion_binding.dart';
-import 'package:eatfluence_va/presentation/splash_screen/splash_screen.dart';
-import 'package:eatfluence_va/presentation/splash_screen/binding/splash_binding.dart';
-import 'package:eatfluence_va/presentation/login_page_screen/login_page_screen.dart';
-import 'package:eatfluence_va/presentation/login_page_screen/binding/login_page_binding.dart';
-import 'package:eatfluence_va/presentation/inscription_eight_screen/inscription_eight_screen.dart';
-import 'package:eatfluence_va/presentation/inscription_eight_screen/binding/inscription_eight_binding.dart';
-import 'package:eatfluence_va/presentation/inscription_seven_screen/inscription_seven_screen.dart';
-import 'package:eatfluence_va/presentation/inscription_seven_screen/binding/inscription_seven_binding.dart';
-import 'package:eatfluence_va/presentation/home_page_restaurateur_screen/home_page_restaurateur_screen.dart';
-import 'package:eatfluence_va/presentation/home_page_restaurateur_screen/binding/home_page_restaurateur_binding.dart';
-import 'package:eatfluence_va/presentation/page_r_servation_screen/page_r_servation_screen.dart';
-import 'package:eatfluence_va/presentation/page_r_servation_screen/binding/page_r_servation_binding.dart';
-import 'package:eatfluence_va/presentation/page_notification_screen/page_notification_screen.dart';
-import 'package:eatfluence_va/presentation/page_notification_screen/binding/page_notification_binding.dart';
-import 'package:eatfluence_va/presentation/page_statistique_screen/page_statistique_screen.dart';
-import 'package:eatfluence_va/presentation/page_statistique_screen/binding/page_statistique_binding.dart';
-import 'package:eatfluence_va/presentation/profil_restaurateur_screen/profil_restaurateur_screen.dart';
-import 'package:eatfluence_va/presentation/profil_restaurateur_screen/binding/profil_restaurateur_binding.dart';
-import 'package:eatfluence_va/presentation/page_profil_de_l_influenceur_screen/page_profil_de_l_influenceur_screen.dart';
-import 'package:eatfluence_va/presentation/page_profil_de_l_influenceur_screen/binding/page_profil_de_l_influenceur_binding.dart';
-import 'package:eatfluence_va/presentation/app_navigation_screen/app_navigation_screen.dart';
-import 'package:eatfluence_va/presentation/app_navigation_screen/binding/app_navigation_binding.dart';
+import 'package:taurouf_s_application9/presentation/login_page_influenceur_screen/login_page_influenceur_screen.dart';
+import 'package:taurouf_s_application9/presentation/login_page_influenceur_screen/binding/login_page_influenceur_binding.dart';
+import 'package:taurouf_s_application9/presentation/animation_one_screen/animation_one_screen.dart';
+import 'package:taurouf_s_application9/presentation/animation_one_screen/binding/animation_one_binding.dart';
+import 'package:taurouf_s_application9/presentation/connexion_one_screen/connexion_one_screen.dart';
+import 'package:taurouf_s_application9/presentation/connexion_one_screen/binding/connexion_one_binding.dart';
+import 'package:taurouf_s_application9/presentation/detail_confirmation_resa_screen/detail_confirmation_resa_screen.dart';
+import 'package:taurouf_s_application9/presentation/detail_confirmation_resa_screen/binding/detail_confirmation_resa_binding.dart';
+import 'package:taurouf_s_application9/presentation/page_avis_resto_container_screen/page_avis_resto_container_screen.dart';
+import 'package:taurouf_s_application9/presentation/page_avis_resto_container_screen/binding/page_avis_resto_container_binding.dart';
+import 'package:taurouf_s_application9/presentation/splash_screen_one_screen/splash_screen_one_screen.dart';
+import 'package:taurouf_s_application9/presentation/splash_screen_one_screen/binding/splash_screen_one_binding.dart';
+import 'package:taurouf_s_application9/presentation/inscription_influenceur_one_screen/inscription_influenceur_one_screen.dart';
+import 'package:taurouf_s_application9/presentation/inscription_influenceur_one_screen/binding/inscription_influenceur_one_binding.dart';
+import 'package:taurouf_s_application9/presentation/inscription_influenceur_two_screen/inscription_influenceur_two_screen.dart';
+import 'package:taurouf_s_application9/presentation/inscription_influenceur_two_screen/binding/inscription_influenceur_two_binding.dart';
+import 'package:taurouf_s_application9/presentation/page_favoris_screen/page_favoris_screen.dart';
+import 'package:taurouf_s_application9/presentation/page_favoris_screen/binding/page_favoris_binding.dart';
+import 'package:taurouf_s_application9/presentation/page_profil_screen/page_profil_screen.dart';
+import 'package:taurouf_s_application9/presentation/page_profil_screen/binding/page_profil_binding.dart';
+import 'package:taurouf_s_application9/presentation/page_carte_restaurant_screen/page_carte_restaurant_screen.dart';
+import 'package:taurouf_s_application9/presentation/page_carte_restaurant_screen/binding/page_carte_restaurant_binding.dart';
+import 'package:taurouf_s_application9/presentation/home_page_screen_influenceur_screen/home_page_screen_influenceur_screen.dart';
+import 'package:taurouf_s_application9/presentation/home_page_screen_influenceur_screen/binding/home_page_screen_influenceur_binding.dart';
+import 'package:taurouf_s_application9/presentation/page_avis_screen/page_avis_screen.dart';
+import 'package:taurouf_s_application9/presentation/page_avis_screen/binding/page_avis_binding.dart';
+import 'package:taurouf_s_application9/presentation/animation_screen/animation_screen.dart';
+import 'package:taurouf_s_application9/presentation/animation_screen/binding/animation_binding.dart';
+import 'package:taurouf_s_application9/presentation/connexion_screen/connexion_screen.dart';
+import 'package:taurouf_s_application9/presentation/connexion_screen/binding/connexion_binding.dart';
+import 'package:taurouf_s_application9/presentation/splash_screen/splash_screen.dart';
+import 'package:taurouf_s_application9/presentation/splash_screen/binding/splash_binding.dart';
+import 'package:taurouf_s_application9/presentation/login_page_restaurateur_screen/login_page_restaurateur_screen.dart';
+import 'package:taurouf_s_application9/presentation/login_page_restaurateur_screen/binding/login_page_restaurateur_binding.dart';
+import 'package:taurouf_s_application9/presentation/inscription_restaurateur_one_screen/inscription_restaurateur_one_screen.dart';
+import 'package:taurouf_s_application9/presentation/inscription_restaurateur_one_screen/binding/inscription_restaurateur_one_binding.dart';
+import 'package:taurouf_s_application9/presentation/inscription_restaurateur_two_screen/inscription_restaurateur_two_screen.dart';
+import 'package:taurouf_s_application9/presentation/inscription_restaurateur_two_screen/binding/inscription_restaurateur_two_binding.dart';
+import 'package:taurouf_s_application9/presentation/home_page_restaurateur_screen/home_page_restaurateur_screen.dart';
+import 'package:taurouf_s_application9/presentation/home_page_restaurateur_screen/binding/home_page_restaurateur_binding.dart';
+import 'package:taurouf_s_application9/presentation/page_notification_screen/page_notification_screen.dart';
+import 'package:taurouf_s_application9/presentation/page_notification_screen/binding/page_notification_binding.dart';
+import 'package:taurouf_s_application9/presentation/page_statistique_screen/page_statistique_screen.dart';
+import 'package:taurouf_s_application9/presentation/page_statistique_screen/binding/page_statistique_binding.dart';
+import 'package:taurouf_s_application9/presentation/profil_restaurateur_screen/profil_restaurateur_screen.dart';
+import 'package:taurouf_s_application9/presentation/profil_restaurateur_screen/binding/profil_restaurateur_binding.dart';
+import 'package:taurouf_s_application9/presentation/page_profil_influenceur_screen/page_profil_influenceur_screen.dart';
+import 'package:taurouf_s_application9/presentation/page_profil_influenceur_screen/binding/page_profil_influenceur_binding.dart';
+import 'package:taurouf_s_application9/presentation/app_navigation_screen/app_navigation_screen.dart';
+import 'package:taurouf_s_application9/presentation/app_navigation_screen/binding/app_navigation_binding.dart';
 import 'package:get/get.dart';
 
 class AppRoutes {
-  static const String loginPageOneScreen = '/login_page_one_screen';
+  static const String loginPageInfluenceurScreen =
+      '/login_page_influenceur_screen';
+
+  static const String pageHistoriquesTwoPage = '/page_historiques_two_page';
 
   static const String animationOneScreen = '/animation_one_screen';
 
   static const String connexionOneScreen = '/connexion_one_screen';
 
+  static const String pageHistoriquesPage = '/page_historiques_page';
+
+  static const String detailConfirmationResaScreen =
+      '/detail_confirmation_resa_screen';
+
+  static const String pageAvisDuRestaurateurPage =
+      '/page_avis_du_restaurateur_page';
+
+  static const String pageAvisRestoContainerScreen =
+      '/page_avis_resto_container_screen';
+
   static const String splashScreenOneScreen = '/splash_screen_one_screen';
 
-  static const String inscriptionNineScreen = '/inscription_nine_screen';
+  static const String inscriptionInfluenceurOneScreen =
+      '/inscription_influenceur_one_screen';
 
-  static const String inscriptionTwoScreen = '/inscription_two_screen';
+  static const String inscriptionInfluenceurTwoScreen =
+      '/inscription_influenceur_two_screen';
 
   static const String homePageInfluenceurPage = '/home_page_influenceur_page';
 
-  static const String pageFavorisPage = '/page_favoris_page';
+  static const String pageFavorisScreen = '/page_favoris_screen';
 
-  static const String pageFavorisContainerScreen =
-      '/page_favoris_container_screen';
-
-  static const String pageRServationsPage = '/page_r_servations_page';
+  static const String pageReservationsPage = '/page_reservations_page';
 
   static const String pageNotificationsPage = '/page_notifications_page';
 
   static const String pageProfilScreen = '/page_profil_screen';
 
-  static const String pageRestaurantScreen = '/page_restaurant_screen';
+  static const String pageCarteRestaurantScreen =
+      '/page_carte_restaurant_screen';
+
+  static const String homePageScreenInfluenceurScreen =
+      '/home_page_screen_influenceur_screen';
+
+  static const String pageReservationHistoTwoPage =
+      '/page_reservation_histo_two_page';
+
+  static const String pageReservationHistoOnePage =
+      '/page_reservation_histo_one_page';
+
+  static const String pageAvisScreen = '/page_avis_screen';
 
   static const String animationScreen = '/animation_screen';
 
@@ -78,16 +109,22 @@ class AppRoutes {
 
   static const String splashScreen = '/splash_screen';
 
-  static const String loginPageScreen = '/login_page_screen';
+  static const String loginPageRestaurateurScreen =
+      '/login_page_restaurateur_screen';
 
-  static const String inscriptionEightScreen = '/inscription_eight_screen';
+  static const String inscriptionRestaurateurOneScreen =
+      '/inscription_restaurateur_one_screen';
 
-  static const String inscriptionSevenScreen = '/inscription_seven_screen';
+  static const String inscriptionRestaurateurTwoScreen =
+      '/inscription_restaurateur_two_screen';
 
   static const String homePageRestaurateurScreen =
       '/home_page_restaurateur_screen';
 
-  static const String pageRServationScreen = '/page_r_servation_screen';
+  static const String pageReservationPage = '/page_reservation_page';
+
+  static const String pageReservationTabContainerPage =
+      '/page_reservation_tab_container_page';
 
   static const String pageNotificationScreen = '/page_notification_screen';
 
@@ -95,8 +132,8 @@ class AppRoutes {
 
   static const String profilRestaurateurScreen = '/profil_restaurateur_screen';
 
-  static const String pageProfilDeLInfluenceurScreen =
-      '/page_profil_de_l_influenceur_screen';
+  static const String pageProfilInfluenceurScreen =
+      '/page_profil_influenceur_screen';
 
   static const String appNavigationScreen = '/app_navigation_screen';
 
@@ -104,10 +141,10 @@ class AppRoutes {
 
   static List<GetPage> pages = [
     GetPage(
-      name: loginPageOneScreen,
-      page: () => LoginPageOneScreen(),
+      name: loginPageInfluenceurScreen,
+      page: () => LoginPageInfluenceurScreen(),
       bindings: [
-        LoginPageOneBinding(),
+        LoginPageInfluenceurBinding(),
       ],
     ),
     GetPage(
@@ -125,6 +162,20 @@ class AppRoutes {
       ],
     ),
     GetPage(
+      name: detailConfirmationResaScreen,
+      page: () => DetailConfirmationResaScreen(),
+      bindings: [
+        DetailConfirmationResaBinding(),
+      ],
+    ),
+    GetPage(
+      name: pageAvisRestoContainerScreen,
+      page: () => PageAvisRestoContainerScreen(),
+      bindings: [
+        PageAvisRestoContainerBinding(),
+      ],
+    ),
+    GetPage(
       name: splashScreenOneScreen,
       page: () => SplashScreenOneScreen(),
       bindings: [
@@ -132,24 +183,24 @@ class AppRoutes {
       ],
     ),
     GetPage(
-      name: inscriptionNineScreen,
-      page: () => InscriptionNineScreen(),
+      name: inscriptionInfluenceurOneScreen,
+      page: () => InscriptionInfluenceurOneScreen(),
       bindings: [
-        InscriptionNineBinding(),
+        InscriptionInfluenceurOneBinding(),
       ],
     ),
     GetPage(
-      name: inscriptionTwoScreen,
-      page: () => InscriptionTwoScreen(),
+      name: inscriptionInfluenceurTwoScreen,
+      page: () => InscriptionInfluenceurTwoScreen(),
       bindings: [
-        InscriptionTwoBinding(),
+        InscriptionInfluenceurTwoBinding(),
       ],
     ),
     GetPage(
-      name: pageFavorisContainerScreen,
-      page: () => PageFavorisContainerScreen(),
+      name: pageFavorisScreen,
+      page: () => PageFavorisScreen(),
       bindings: [
-        PageFavorisContainerBinding(),
+        PageFavorisBinding(),
       ],
     ),
     GetPage(
@@ -160,10 +211,24 @@ class AppRoutes {
       ],
     ),
     GetPage(
-      name: pageRestaurantScreen,
-      page: () => PageRestaurantScreen(),
+      name: pageCarteRestaurantScreen,
+      page: () => PageCarteRestaurantScreen(),
       bindings: [
-        PageRestaurantBinding(),
+        PageCarteRestaurantBinding(),
+      ],
+    ),
+    GetPage(
+      name: homePageScreenInfluenceurScreen,
+      page: () => HomePageScreenInfluenceurScreen(),
+      bindings: [
+        HomePageScreenInfluenceurBinding(),
+      ],
+    ),
+    GetPage(
+      name: pageAvisScreen,
+      page: () => PageAvisScreen(),
+      bindings: [
+        PageAvisBinding(),
       ],
     ),
     GetPage(
@@ -188,24 +253,24 @@ class AppRoutes {
       ],
     ),
     GetPage(
-      name: loginPageScreen,
-      page: () => LoginPageScreen(),
+      name: loginPageRestaurateurScreen,
+      page: () => LoginPageRestaurateurScreen(),
       bindings: [
-        LoginPageBinding(),
+        LoginPageRestaurateurBinding(),
       ],
     ),
     GetPage(
-      name: inscriptionEightScreen,
-      page: () => InscriptionEightScreen(),
+      name: inscriptionRestaurateurOneScreen,
+      page: () => InscriptionRestaurateurOneScreen(),
       bindings: [
-        InscriptionEightBinding(),
+        InscriptionRestaurateurOneBinding(),
       ],
     ),
     GetPage(
-      name: inscriptionSevenScreen,
-      page: () => InscriptionSevenScreen(),
+      name: inscriptionRestaurateurTwoScreen,
+      page: () => InscriptionRestaurateurTwoScreen(),
       bindings: [
-        InscriptionSevenBinding(),
+        InscriptionRestaurateurTwoBinding(),
       ],
     ),
     GetPage(
@@ -213,13 +278,6 @@ class AppRoutes {
       page: () => HomePageRestaurateurScreen(),
       bindings: [
         HomePageRestaurateurBinding(),
-      ],
-    ),
-    GetPage(
-      name: pageRServationScreen,
-      page: () => PageRServationScreen(),
-      bindings: [
-        PageRServationBinding(),
       ],
     ),
     GetPage(
@@ -244,10 +302,10 @@ class AppRoutes {
       ],
     ),
     GetPage(
-      name: pageProfilDeLInfluenceurScreen,
-      page: () => PageProfilDeLInfluenceurScreen(),
+      name: pageProfilInfluenceurScreen,
+      page: () => PageProfilInfluenceurScreen(),
       bindings: [
-        PageProfilDeLInfluenceurBinding(),
+        PageProfilInfluenceurBinding(),
       ],
     ),
     GetPage(

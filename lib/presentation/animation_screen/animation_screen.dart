@@ -1,14 +1,12 @@
 import 'controller/animation_controller.dart';
-import 'package:eatfluence_va/core/app_export.dart';
-import 'package:eatfluence_va/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:taurouf_s_application9/core/app_export.dart';
+import 'package:taurouf_s_application9/widgets/custom_button.dart';
 
 class AnimationScreen extends GetWidget<AnimationController> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        top: false,
-        bottom: false,
         child: Scaffold(
             extendBody: true,
             extendBodyBehindAppBar: true,
@@ -19,10 +17,11 @@ class AnimationScreen extends GetWidget<AnimationController> {
                 decoration: BoxDecoration(
                     color: ColorConstant.whiteA700,
                     image: DecorationImage(
-                        image: AssetImage(ImageConstant.imgLoginpageone),
+                        image:
+                            AssetImage(ImageConstant.imgLoginpageinfluenceur),
                         fit: BoxFit.cover)),
                 child: Container(
-                    width: size.width,
+                    width: double.maxFinite,
                     padding: getPadding(left: 19, top: 88, right: 19),
                     child: Column(
                         mainAxisSize: MainAxisSize.min,
@@ -30,25 +29,26 @@ class AnimationScreen extends GetWidget<AnimationController> {
                         children: [
                           CustomImageView(
                               imagePath: ImageConstant.imgLogoverticale,
-                              height: getVerticalSize(182.00),
-                              width: getHorizontalSize(352.00)),
+                              height: getVerticalSize(182),
+                              width: getHorizontalSize(352)),
                           CustomButton(
-                              height: 62,
-                              width: 315,
+                              height: getVerticalSize(62),
                               text: "lbl_connexion".tr,
-                              margin: getMargin(top: 66),
+                              margin: getMargin(left: 19, top: 66, right: 18),
                               variant: ButtonVariant.OutlineBlack90033,
                               shape: ButtonShape.RoundedBorder30,
-                              padding: ButtonPadding.PaddingAll18,
-                              fontStyle: ButtonFontStyle.NexaBold20),
+                              padding: ButtonPadding.PaddingAll21,
+                              fontStyle: ButtonFontStyle.NexaBold20,
+                              onTap: onTapConnexion),
+                          Padding(
+                              padding: getPadding(top: 34),
+                              child: SizedBox(
+                                  width: getHorizontalSize(141),
+                                  child: Divider(
+                                      height: getVerticalSize(1),
+                                      thickness: getVerticalSize(1),
+                                      color: ColorConstant.black900))),
                           Container(
-                              height: getVerticalSize(1.00),
-                              width: getHorizontalSize(141.00),
-                              margin: getMargin(top: 34),
-                              decoration:
-                                  BoxDecoration(color: ColorConstant.black900)),
-                          Container(
-                              width: getHorizontalSize(340.00),
                               margin: getMargin(
                                   left: 5, top: 30, right: 7, bottom: 5),
                               padding: getPadding(
@@ -64,7 +64,7 @@ class AnimationScreen extends GetWidget<AnimationController> {
                                     Text("lbl_vous_tes".tr,
                                         overflow: TextOverflow.ellipsis,
                                         textAlign: TextAlign.left,
-                                        style: AppStyle.txtNexaBook23Black900),
+                                        style: AppStyle.txtNexaBook23),
                                     Container(
                                         margin: getMargin(left: 1, top: 11),
                                         padding: getPadding(
@@ -97,37 +97,40 @@ class AnimationScreen extends GetWidget<AnimationController> {
                                                           textAlign:
                                                               TextAlign.left,
                                                           style: AppStyle
-                                                              .txtNexaBook20Black900))),
+                                                              .txtNexaBook20))),
                                               CustomButton(
-                                                  height: 35,
-                                                  width: 148,
+                                                  height: getVerticalSize(35),
+                                                  width: getHorizontalSize(148),
                                                   text: "lbl_restaurateur".tr,
                                                   shape: ButtonShape
                                                       .RoundedBorder17,
                                                   padding:
-                                                      ButtonPadding.PaddingAll6,
+                                                      ButtonPadding.PaddingAll7,
                                                   fontStyle: ButtonFontStyle
                                                       .NexaBold20Pink50)
                                             ])),
                                     CustomButton(
-                                        height: 61,
-                                        width: 315,
+                                        height: getVerticalSize(61),
                                         text: "lbl_inscription".tr,
                                         margin: getMargin(top: 16, bottom: 16),
                                         variant:
                                             ButtonVariant.OutlineBlack9003f_1,
                                         shape: ButtonShape.RoundedBorder30,
-                                        padding: ButtonPadding.PaddingAll18,
+                                        padding: ButtonPadding.PaddingAll21,
                                         onTap: onTapInscription)
                                   ]))
                         ])))));
   }
 
+  onTapConnexion() {
+    Get.toNamed(AppRoutes.connexionScreen);
+  }
+
   onTapTxtInfluenceur() {
-    Get.toNamed(AppRoutes.loginPageScreen);
+    Get.toNamed(AppRoutes.loginPageRestaurateurScreen);
   }
 
   onTapInscription() {
-// TODO: implement Actions
+    Get.toNamed(AppRoutes.inscriptionRestaurateurOneScreen);
   }
 }

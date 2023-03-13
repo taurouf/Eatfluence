@@ -1,12 +1,10 @@
-import 'package:eatfluence_va/core/app_export.dart';
 import 'package:flutter/material.dart';
+import 'package:taurouf_s_application9/core/app_export.dart';
 
 class CustomTextFormField extends StatelessWidget {
   CustomTextFormField(
       {this.shape,
-      this.padding,
       this.variant,
-      this.fontStyle,
       this.alignment,
       this.width,
       this.margin,
@@ -25,11 +23,7 @@ class CustomTextFormField extends StatelessWidget {
 
   TextFormFieldShape? shape;
 
-  TextFormFieldPadding? padding;
-
   TextFormFieldVariant? variant;
-
-  TextFormFieldFontStyle? fontStyle;
 
   Alignment? alignment;
 
@@ -73,12 +67,11 @@ class CustomTextFormField extends StatelessWidget {
 
   _buildTextFormFieldWidget() {
     return Container(
-      width: getHorizontalSize(width ?? 0),
+      width: width ?? double.maxFinite,
       margin: margin,
       child: TextFormField(
         controller: controller,
         focusNode: focusNode,
-        style: _setFontStyle(),
         obscureText: isObscureText!,
         textInputAction: textInputAction,
         keyboardType: textInputType,
@@ -92,7 +85,6 @@ class CustomTextFormField extends StatelessWidget {
   _buildDecoration() {
     return InputDecoration(
       hintText: hintText ?? "",
-      hintStyle: _setFontStyle(),
       border: _setBorderStyle(),
       enabledBorder: _setBorderStyle(),
       focusedBorder: _setBorderStyle(),
@@ -103,31 +95,7 @@ class CustomTextFormField extends StatelessWidget {
       suffixIconConstraints: suffixConstraints,
       filled: _setFilled(),
       isDense: true,
-      contentPadding: _setPadding(),
     );
-  }
-
-  _setFontStyle() {
-    switch (fontStyle) {
-      case TextFormFieldFontStyle.NexaLight1622:
-        return TextStyle(
-          color: ColorConstant.gray800,
-          fontSize: getFontSize(
-            16.22,
-          ),
-          fontFamily: 'Nexa Light',
-          fontWeight: FontWeight.w400,
-        );
-      default:
-        return TextStyle(
-          color: ColorConstant.gray800,
-          fontSize: getFontSize(
-            16.27,
-          ),
-          fontFamily: 'Nexa Light',
-          fontWeight: FontWeight.w400,
-        );
-    }
   }
 
   _setOutlineBorderRadius() {
@@ -166,26 +134,14 @@ class CustomTextFormField extends StatelessWidget {
 
   _setFilled() {
     switch (variant) {
-      case TextFormFieldVariant.OutlineBlack900_1:
-        return false;
       case TextFormFieldVariant.OutlineBlack900:
+        return false;
+      case TextFormFieldVariant.OutlineBlack900_1:
         return false;
       case TextFormFieldVariant.None:
         return false;
       default:
         return false;
-    }
-  }
-
-  _setPadding() {
-    switch (padding) {
-      default:
-        return getPadding(
-          left: 10,
-          top: 13,
-          right: 10,
-          bottom: 13,
-        );
     }
   }
 }
@@ -194,17 +150,8 @@ enum TextFormFieldShape {
   RoundedBorder10,
 }
 
-enum TextFormFieldPadding {
-  PaddingAll11,
-}
-
 enum TextFormFieldVariant {
   None,
-  OutlineBlack900_1,
   OutlineBlack900,
-}
-
-enum TextFormFieldFontStyle {
-  NexaLight1627,
-  NexaLight1622,
+  OutlineBlack900_1,
 }

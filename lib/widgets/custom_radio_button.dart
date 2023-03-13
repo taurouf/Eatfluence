@@ -1,27 +1,26 @@
-import 'package:eatfluence_va/core/app_export.dart';
 import 'package:flutter/material.dart';
+import 'package:taurouf_s_application9/core/app_export.dart';
 
 class CustomRadioButton extends StatelessWidget {
   CustomRadioButton(
-      {this.shape,
-      this.padding,
-      this.fontStyle,
-      this.margin,
+      {this.fontStyle,
+      this.alignment,
       this.onChange,
+      this.isRightCheck = false,
       this.iconSize,
       this.value,
       this.groupValue,
-      this.text});
-
-  RadioShape? shape;
-
-  RadioPadding? padding;
+      this.text,
+      this.width,
+      this.margin});
 
   RadioFontStyle? fontStyle;
 
-  EdgeInsetsGeometry? margin;
+  Alignment? alignment;
 
   Function(String)? onChange;
+
+  bool? isRightCheck;
 
   double? iconSize;
 
@@ -31,33 +30,83 @@ class CustomRadioButton extends StatelessWidget {
 
   String? text;
 
+  double? width;
+
+  EdgeInsetsGeometry? margin;
+
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: margin ?? EdgeInsets.zero,
-      child: InkWell(
-        onTap: () {
+    return alignment != null
+        ? Align(
+            alignment: alignment ?? Alignment.center,
+            child: _buildRadioButtonWidget(),
+          )
+        : _buildRadioButtonWidget();
+  }
+
+  _buildRadioButtonWidget() {
+    return InkWell(
+      onTap: () {
+        onChange!(value!);
+      },
+      child: Container(
+        width: width,
+        margin: margin ?? EdgeInsets.zero,
+        child: isRightCheck! ? getRightSideRadio() : getLeftSideRadio(),
+      ),
+    );
+  }
+
+  Widget getRightSideRadio() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Padding(
+          padding: EdgeInsets.only(
+            right: 8,
+          ),
+          child: getTextWidget(),
+        ),
+        getRadioWidget(),
+      ],
+    );
+  }
+
+  Widget getLeftSideRadio() {
+    return Row(
+      children: [
+        getRadioWidget(),
+        Padding(
+          padding: EdgeInsets.only(
+            left: 8,
+          ),
+          child: getTextWidget(),
+        ),
+      ],
+    );
+  }
+
+  Widget getTextWidget() {
+    return Text(
+      text ?? "",
+      textAlign: TextAlign.center,
+      style: _setFontStyle(),
+    );
+  }
+
+  Widget getRadioWidget() {
+    return SizedBox(
+      height: iconSize,
+      width: iconSize,
+      child: Radio<String>(
+        value: value ?? "",
+        groupValue: groupValue,
+        onChanged: (value) {
           onChange!(value!);
         },
-        child: IntrinsicWidth(
-          child: ListTile(
-            contentPadding: EdgeInsets.zero,
-            minLeadingWidth: getHorizontalSize(iconSize ?? 0),
-            horizontalTitleGap: getHorizontalSize(
-              10,
-            ),
-            leading: Radio<String>(
-              value: value ?? "",
-              groupValue: groupValue,
-              onChanged: (value) {
-                onChange!(value!);
-              },
-            ),
-            title: Text(
-              text ?? "",
-              style: _setFontStyle(),
-            ),
-          ),
+        visualDensity: VisualDensity(
+          vertical: -4,
+          horizontal: -4,
         ),
       ),
     );
@@ -65,15 +114,6 @@ class CustomRadioButton extends StatelessWidget {
 
   _setFontStyle() {
     switch (fontStyle) {
-      case RadioFontStyle.NexaLight12:
-        return TextStyle(
-          color: ColorConstant.black900,
-          fontSize: getFontSize(
-            12,
-          ),
-          fontFamily: 'Nexa Light',
-          fontWeight: FontWeight.w400,
-        );
       default:
         return TextStyle(
           color: ColorConstant.whiteA700,
@@ -82,21 +122,14 @@ class CustomRadioButton extends StatelessWidget {
           ),
           fontFamily: 'Nexa',
           fontWeight: FontWeight.w300,
+          height: getVerticalSize(
+            1.63,
+          ),
         );
-        ;
     }
   }
 }
 
-enum RadioShape {
-  CircleBorder11,
-}
-
-enum RadioPadding {
-  PaddingT3,
-}
-
 enum RadioFontStyle {
   NexaBook8,
-  NexaLight12,
 }

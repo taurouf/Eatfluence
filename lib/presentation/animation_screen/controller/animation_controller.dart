@@ -1,5 +1,5 @@
-import 'package:eatfluence_va/core/app_export.dart';
-import 'package:eatfluence_va/presentation/animation_screen/models/animation_model.dart';
+import 'package:taurouf_s_application9/core/app_export.dart';
+import 'package:taurouf_s_application9/presentation/animation_screen/models/animation_model.dart';
 
 class AnimationController extends GetxController {
   Rx<AnimationModel> animationModelObj = AnimationModel().obs;

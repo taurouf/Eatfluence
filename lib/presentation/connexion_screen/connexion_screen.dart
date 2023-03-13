@@ -1,14 +1,12 @@
 import 'controller/connexion_controller.dart';
-import 'package:eatfluence_va/core/app_export.dart';
-import 'package:eatfluence_va/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:taurouf_s_application9/core/app_export.dart';
+import 'package:taurouf_s_application9/widgets/custom_text_form_field.dart';
 
 class ConnexionScreen extends GetWidget<ConnexionController> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        top: false,
-        bottom: false,
         child: Scaffold(
             extendBody: true,
             extendBodyBehindAppBar: true,
@@ -20,10 +18,11 @@ class ConnexionScreen extends GetWidget<ConnexionController> {
                 decoration: BoxDecoration(
                     color: ColorConstant.whiteA700,
                     image: DecorationImage(
-                        image: AssetImage(ImageConstant.imgLoginpageone),
+                        image:
+                            AssetImage(ImageConstant.imgLoginpageinfluenceur),
                         fit: BoxFit.cover)),
                 child: Container(
-                    width: size.width,
+                    width: double.maxFinite,
                     padding:
                         getPadding(left: 23, top: 48, right: 23, bottom: 48),
                     child: Column(
@@ -49,7 +48,6 @@ class ConnexionScreen extends GetWidget<ConnexionController> {
                                       textAlign: TextAlign.left,
                                       style: AppStyle.txtNexaBold20))),
                           CustomTextFormField(
-                              width: 343,
                               focusNode: FocusNode(),
                               controller: controller.rectangleSixteenController,
                               margin: getMargin(top: 7),
@@ -63,59 +61,64 @@ class ConnexionScreen extends GetWidget<ConnexionController> {
                                       textAlign: TextAlign.left,
                                       style: AppStyle.txtNexaBold20))),
                           CustomTextFormField(
-                              width: 343,
                               focusNode: FocusNode(),
                               controller:
                                   controller.rectangleSeventeenController,
                               margin: getMargin(top: 4),
                               variant: TextFormFieldVariant.OutlineBlack900,
                               textInputAction: TextInputAction.done),
-                          Container(
-                              width: getHorizontalSize(343.00),
-                              margin: getMargin(top: 38),
-                              padding: getPadding(
-                                  left: 30, top: 13, right: 120, bottom: 13),
-                              decoration: AppDecoration.txtFillBlack900
-                                  .copyWith(
-                                      borderRadius:
-                                          BorderRadiusStyle.txtRoundedBorder10),
-                              child: RichText(
-                                  text: TextSpan(children: [
-                                    TextSpan(
-                                        text: "lbl_c".tr.toUpperCase(),
-                                        style: TextStyle(
-                                            color: ColorConstant.whiteA700,
-                                            fontSize: getFontSize(20),
-                                            fontFamily: 'Nexa Bold',
-                                            fontWeight: FontWeight.w700)),
-                                    TextSpan(
-                                        text: "lbl_onnexion".tr.toUpperCase(),
-                                        style: TextStyle(
-                                            color: ColorConstant.whiteA700,
-                                            fontSize: getFontSize(20),
-                                            fontFamily: 'Nexa Bold',
-                                            fontWeight: FontWeight.w700))
-                                  ]),
-                                  textAlign: TextAlign.left)),
+                          GestureDetector(
+                              onTap: () {
+                                onTapTxtConnexion();
+                              },
+                              child: Container(
+                                  width: getHorizontalSize(343),
+                                  margin: getMargin(top: 38),
+                                  padding: getPadding(
+                                      left: 30,
+                                      top: 13,
+                                      right: 120,
+                                      bottom: 13),
+                                  decoration: AppDecoration.txtFillBlack900
+                                      .copyWith(
+                                          borderRadius: BorderRadiusStyle
+                                              .txtCircleBorder12),
+                                  child: RichText(
+                                      text: TextSpan(children: [
+                                        TextSpan(
+                                            text: "lbl_c".tr.toUpperCase(),
+                                            style: TextStyle(
+                                                color: ColorConstant.fromHex(
+                                                    "#ffffff"),
+                                                fontSize: getFontSize(20),
+                                                fontFamily: 'Nexa Bold',
+                                                fontWeight: FontWeight.w700)),
+                                        TextSpan(
+                                            text:
+                                                "lbl_onnexion".tr.toUpperCase(),
+                                            style: TextStyle(
+                                                color: ColorConstant.fromHex(
+                                                    "#ffffff"),
+                                                fontSize: getFontSize(20),
+                                                fontFamily: 'Nexa Bold',
+                                                fontWeight: FontWeight.w700))
+                                      ]),
+                                      textAlign: TextAlign.left))),
                           Spacer(),
                           Text("msg_pas_encore_de_compte".tr,
                               overflow: TextOverflow.ellipsis,
                               textAlign: TextAlign.left,
                               style: AppStyle.txtNexaLight20),
-                          GestureDetector(
-                              onTap: () {
-                                onTapTxtInscrivezvous();
-                              },
-                              child: Padding(
-                                  padding: getPadding(top: 5),
-                                  child: Text("lbl_inscrivez_vous".tr,
-                                      overflow: TextOverflow.ellipsis,
-                                      textAlign: TextAlign.left,
-                                      style: AppStyle.txtNexaBold20)))
+                          Padding(
+                              padding: getPadding(top: 5),
+                              child: Text("lbl_inscrivez_vous".tr,
+                                  overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.left,
+                                  style: AppStyle.txtNexaBold20))
                         ])))));
   }
 
-  onTapTxtInscrivezvous() {
-    Get.toNamed(AppRoutes.loginPageOneScreen);
+  onTapTxtConnexion() {
+    Get.toNamed(AppRoutes.homePageRestaurateurScreen);
   }
 }

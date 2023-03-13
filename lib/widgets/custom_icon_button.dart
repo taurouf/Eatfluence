@@ -1,5 +1,5 @@
-import 'package:eatfluence_va/core/app_export.dart';
 import 'package:flutter/material.dart';
+import 'package:taurouf_s_application9/core/app_export.dart';
 
 class CustomIconButton extends StatelessWidget {
   CustomIconButton(
@@ -45,6 +45,10 @@ class CustomIconButton extends StatelessWidget {
     return Padding(
       padding: margin ?? EdgeInsets.zero,
       child: IconButton(
+        visualDensity: VisualDensity(
+          vertical: -4,
+          horizontal: -4,
+        ),
         iconSize: getSize(height ?? 0),
         padding: EdgeInsets.all(0),
         icon: Container(
@@ -69,48 +73,48 @@ class CustomIconButton extends StatelessWidget {
 
   _setPadding() {
     switch (padding) {
+      case IconButtonPadding.PaddingAll6:
+        return getPadding(
+          all: 6,
+        );
       case IconButtonPadding.PaddingAll9:
         return getPadding(
           all: 9,
         );
-      case IconButtonPadding.RoundedBorder7:
-        return getPadding(
-          all: 1,
-        );
       default:
         return getPadding(
-          all: 5,
+          all: 2,
         );
     }
   }
 
   _setColor() {
     switch (variant) {
+      case IconButtonVariant.FillWhiteA700:
+        return ColorConstant.whiteA700;
       case IconButtonVariant.FillBlack90001:
         return ColorConstant.black90001;
+      case IconButtonVariant.Outline_1:
+        return ColorConstant.whiteA7007f;
       case IconButtonVariant.Outline:
         return ColorConstant.whiteA7007f;
-      case IconButtonVariant.FillGray200:
-        return ColorConstant.gray200;
-      case IconButtonVariant.FillBlack900:
-        return ColorConstant.black900;
       default:
-        return ColorConstant.whiteA700;
+        return ColorConstant.gray200;
     }
   }
 
   _setBorderRadius() {
     switch (shape) {
-      case IconButtonShape.CircleBorder13:
-        return BorderRadius.circular(
-          getHorizontalSize(
-            13.00,
-          ),
-        );
       case IconButtonShape.RoundedBorder19:
         return BorderRadius.circular(
           getHorizontalSize(
             19.00,
+          ),
+        );
+      case IconButtonShape.CircleBorder13:
+        return BorderRadius.circular(
+          getHorizontalSize(
+            13.00,
           ),
         );
       case IconButtonShape.RoundedBorder10:
@@ -119,31 +123,33 @@ class CustomIconButton extends StatelessWidget {
             10.00,
           ),
         );
-      case IconButtonShape.RoundedBorder7:
-        return null;
       default:
-        return null;
+        return BorderRadius.circular(
+          getHorizontalSize(
+            6.00,
+          ),
+        );
     }
   }
 }
 
 enum IconButtonShape {
-  CircleBorder13,
+  RoundedBorder6_1,
   RoundedBorder19,
-  RoundedBorder7,
+  CircleBorder13,
   RoundedBorder10,
 }
 
 enum IconButtonPadding {
-  PaddingAll5,
+  RoundedBorder6,
+  PaddingAll6,
   PaddingAll9,
-  RoundedBorder7,
 }
 
 enum IconButtonVariant {
+  FillGray200,
   FillWhiteA700,
   FillBlack90001,
+  Outline_1,
   Outline,
-  FillGray200,
-  FillBlack900,
 }

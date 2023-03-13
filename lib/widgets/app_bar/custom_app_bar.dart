@@ -1,6 +1,6 @@
-import 'package:eatfluence_va/core/app_export.dart';
 import 'package:flutter/material.dart';
 import 'package:outline_gradient_button/outline_gradient_button.dart';
+import 'package:taurouf_s_application9/core/app_export.dart';
 
 // ignore: must_be_immutable
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
@@ -55,20 +55,20 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
         return OutlineGradientButton(
           padding: EdgeInsets.only(
             left: getHorizontalSize(
-              2.00,
+              2,
             ),
             top: getVerticalSize(
-              2.00,
+              2,
             ),
             right: getHorizontalSize(
-              2.00,
+              2,
             ),
             bottom: getVerticalSize(
-              2.00,
+              2,
             ),
           ),
           strokeWidth: getHorizontalSize(
-            2.00,
+            2,
           ),
           gradient: LinearGradient(
             begin: Alignment(
@@ -87,9 +87,9 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
           ),
           child: Container(
             height: getVerticalSize(
-              115.00,
+              115,
             ),
-            width: size.width,
+            width: double.maxFinite,
             decoration: BoxDecoration(
               color: ColorConstant.whiteA700,
             ),

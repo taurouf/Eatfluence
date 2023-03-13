@@ -1,5 +1,5 @@
-import 'package:eatfluence_va/core/app_export.dart';
-import 'package:eatfluence_va/presentation/splash_screen_one_screen/models/splash_screen_one_model.dart';
+import 'package:taurouf_s_application9/core/app_export.dart';
+import 'package:taurouf_s_application9/presentation/splash_screen_one_screen/models/splash_screen_one_model.dart';
 
 class SplashScreenOneController extends GetxController {
   Rx<SplashScreenOneModel> splashScreenOneModelObj = SplashScreenOneModel().obs;
@@ -8,7 +8,7 @@ class SplashScreenOneController extends GetxController {
   void onReady() {
     super.onReady();
     Future.delayed(const Duration(milliseconds: 3000), () {
-      Get.toNamed(AppRoutes.loginPageOneScreen);
+      Get.toNamed(AppRoutes.loginPageInfluenceurScreen);
     });
   }
 

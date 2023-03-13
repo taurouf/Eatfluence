@@ -1,5 +1,5 @@
-import 'package:eatfluence_va/core/app_export.dart';
 import 'package:flutter/material.dart';
+import 'package:taurouf_s_application9/core/app_export.dart';
 
 class CustomDropDown extends StatelessWidget {
   CustomDropDown(
@@ -52,7 +52,7 @@ class CustomDropDown extends StatelessWidget {
 
   _buildDropDownWidget() {
     return Container(
-      width: getHorizontalSize(width ?? 0),
+      width: width ?? double.maxFinite,
       margin: margin,
       child: DropdownButtonFormField<SelectionPopupModel>(
         focusNode: focusNode,
@@ -97,6 +97,9 @@ class CustomDropDown extends StatelessWidget {
           ),
           fontFamily: 'Nexa',
           fontWeight: FontWeight.w300,
+          height: getVerticalSize(
+            1.54,
+          ),
         );
     }
   }

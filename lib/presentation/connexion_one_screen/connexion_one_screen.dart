@@ -1,14 +1,16 @@
 import 'controller/connexion_one_controller.dart';
-import 'package:eatfluence_va/core/app_export.dart';
-import 'package:eatfluence_va/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:taurouf_s_application9/core/app_export.dart';
+import 'package:taurouf_s_application9/widgets/custom_button.dart';
+import 'package:taurouf_s_application9/widgets/custom_text_form_field.dart';
+import 'package:taurouf_s_application9/domain/googleauth/google_auth_helper.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class ConnexionOneScreen extends GetWidget<ConnexionOneController> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        top: false,
-        bottom: false,
         child: Scaffold(
             extendBody: true,
             extendBodyBehindAppBar: true,
@@ -20,10 +22,11 @@ class ConnexionOneScreen extends GetWidget<ConnexionOneController> {
                 decoration: BoxDecoration(
                     color: ColorConstant.whiteA700,
                     image: DecorationImage(
-                        image: AssetImage(ImageConstant.imgLoginpageone),
+                        image:
+                            AssetImage(ImageConstant.imgLoginpageinfluenceur),
                         fit: BoxFit.cover)),
                 child: Container(
-                    width: size.width,
+                    width: double.maxFinite,
                     padding:
                         getPadding(left: 23, top: 48, right: 23, bottom: 48),
                     child: Column(
@@ -49,7 +52,6 @@ class ConnexionOneScreen extends GetWidget<ConnexionOneController> {
                                       textAlign: TextAlign.left,
                                       style: AppStyle.txtNexaBold20))),
                           CustomTextFormField(
-                              width: 343,
                               focusNode: FocusNode(),
                               controller: controller.rectangleSixteenController,
                               margin: getMargin(top: 7),
@@ -63,40 +65,18 @@ class ConnexionOneScreen extends GetWidget<ConnexionOneController> {
                                       textAlign: TextAlign.left,
                                       style: AppStyle.txtNexaBold20))),
                           CustomTextFormField(
-                              width: 343,
                               focusNode: FocusNode(),
                               controller:
                                   controller.rectangleSeventeenController,
                               margin: getMargin(top: 4),
                               variant: TextFormFieldVariant.OutlineBlack900,
                               textInputAction: TextInputAction.done),
-                          Container(
-                              width: getHorizontalSize(343.00),
+                          CustomButton(
+                              height: getVerticalSize(49),
+                              text: "lbl_connexion".tr.toUpperCase(),
                               margin: getMargin(top: 38),
-                              padding: getPadding(
-                                  left: 30, top: 13, right: 120, bottom: 13),
-                              decoration: AppDecoration.txtFillBlack900
-                                  .copyWith(
-                                      borderRadius:
-                                          BorderRadiusStyle.txtRoundedBorder10),
-                              child: RichText(
-                                  text: TextSpan(children: [
-                                    TextSpan(
-                                        text: "lbl_c".tr.toUpperCase(),
-                                        style: TextStyle(
-                                            color: ColorConstant.whiteA700,
-                                            fontSize: getFontSize(20),
-                                            fontFamily: 'Nexa Bold',
-                                            fontWeight: FontWeight.w700)),
-                                    TextSpan(
-                                        text: "lbl_onnexion".tr.toUpperCase(),
-                                        style: TextStyle(
-                                            color: ColorConstant.whiteA700,
-                                            fontSize: getFontSize(20),
-                                            fontFamily: 'Nexa Bold',
-                                            fontWeight: FontWeight.w700))
-                                  ]),
-                                  textAlign: TextAlign.left)),
+                              padding: ButtonPadding.PaddingAll14,
+                              onTap: LoginGoogle),
                           Spacer(),
                           Text("msg_pas_encore_de_compte".tr,
                               overflow: TextOverflow.ellipsis,
@@ -115,7 +95,29 @@ class ConnexionOneScreen extends GetWidget<ConnexionOneController> {
                         ])))));
   }
 
+  LoginGoogle() async {
+    await GoogleAuthHelper().googleSignInProcess().then((googleUser) {
+      if (googleUser != null) {
+        onSuccessGoogleAuthResponse(googleUser);
+      } else {
+        onErrorGoogleAuthResponse();
+      }
+    }).catchError((onError) {
+      onErrorGoogleAuthResponse();
+    });
+  }
+
+  onSuccessGoogleAuthResponse(GoogleSignInAccount googleUser) {
+    Get.offNamed(AppRoutes.homePageScreenInfluenceurScreen);
+  }
+
+  onErrorGoogleAuthResponse() {
+    Fluttertoast.showToast(
+      msg: "Mot de passe ou Email Erreur",
+    );
+  }
+
   onTapTxtInscrivezvous() {
-    Get.toNamed(AppRoutes.loginPageOneScreen);
+    Get.toNamed(AppRoutes.inscriptionInfluenceurOneScreen);
   }
 }

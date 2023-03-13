@@ -1,13 +1,11 @@
 import 'controller/splash_controller.dart';
-import 'package:eatfluence_va/core/app_export.dart';
 import 'package:flutter/material.dart';
+import 'package:taurouf_s_application9/core/app_export.dart';
 
 class SplashScreen extends GetWidget<SplashController> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      top: false,
-      bottom: false,
       child: Scaffold(
         extendBody: true,
         extendBodyBehindAppBar: true,
@@ -19,13 +17,13 @@ class SplashScreen extends GetWidget<SplashController> {
             color: ColorConstant.whiteA700,
             image: DecorationImage(
               image: AssetImage(
-                ImageConstant.imgLoginpageone,
+                ImageConstant.imgLoginpageinfluenceur,
               ),
               fit: BoxFit.cover,
             ),
           ),
           child: Container(
-            width: size.width,
+            width: double.maxFinite,
             padding: getPadding(
               left: 19,
               right: 19,
@@ -36,10 +34,10 @@ class SplashScreen extends GetWidget<SplashController> {
                 CustomImageView(
                   imagePath: ImageConstant.imgLogoverticale,
                   height: getVerticalSize(
-                    182.00,
+                    182,
                   ),
                   width: getHorizontalSize(
-                    352.00,
+                    352,
                   ),
                 ),
               ],

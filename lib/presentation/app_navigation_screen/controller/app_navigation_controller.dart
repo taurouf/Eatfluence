@@ -1,5 +1,5 @@
-import 'package:eatfluence_va/core/app_export.dart';
-import 'package:eatfluence_va/presentation/app_navigation_screen/models/app_navigation_model.dart';
+import 'package:taurouf_s_application9/core/app_export.dart';
+import 'package:taurouf_s_application9/presentation/app_navigation_screen/models/app_navigation_model.dart';
 
 class AppNavigationController extends GetxController {
   Rx<AppNavigationModel> appNavigationModelObj = AppNavigationModel().obs;

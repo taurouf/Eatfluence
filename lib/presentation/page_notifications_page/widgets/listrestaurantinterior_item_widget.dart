@@ -1,7 +1,7 @@
 import '../controller/page_notifications_controller.dart';
 import '../models/listrestaurantinterior_item_model.dart';
-import 'package:eatfluence_va/core/app_export.dart';
 import 'package:flutter/material.dart';
+import 'package:taurouf_s_application9/core/app_export.dart';
 
 // ignore: must_be_immutable
 class ListrestaurantinteriorItemWidget extends StatelessWidget {
@@ -23,34 +23,34 @@ class ListrestaurantinteriorItemWidget extends StatelessWidget {
           shape: RoundedRectangleBorder(
             side: BorderSide(
               width: getHorizontalSize(
-                2.00,
+                2,
               ),
             ),
-            borderRadius: BorderRadiusStyle.circleBorder33,
+            borderRadius: BorderRadiusStyle.circleBorder35,
           ),
           child: Container(
             height: getSize(
-              66.00,
+              66,
             ),
             width: getSize(
-              66.00,
+              66,
             ),
             decoration: AppDecoration.outline1.copyWith(
-              borderRadius: BorderRadiusStyle.circleBorder33,
+              borderRadius: BorderRadiusStyle.circleBorder35,
             ),
             child: Stack(
               children: [
                 CustomImageView(
                   imagePath: ImageConstant.imgRestaurantinterior,
                   height: getSize(
-                    66.00,
+                    66,
                   ),
                   width: getSize(
-                    66.00,
+                    66,
                   ),
                   radius: BorderRadius.circular(
                     getHorizontalSize(
-                      33.00,
+                      33,
                     ),
                   ),
                   alignment: Alignment.center,
@@ -69,17 +69,21 @@ class ListrestaurantinteriorItemWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text(
-                "lbl_l_tabli_paris".tr,
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.left,
-                style: AppStyle.txtNexaBold15,
+              Obx(
+                () => Text(
+                  listrestaurantinteriorItemModelObj.restaurantnameTxt.value,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.left,
+                  style: AppStyle.txtNexaBold15,
+                ),
               ),
-              Text(
-                "msg_a_d_clin_votre".tr,
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.left,
-                style: AppStyle.txtNexaBook12,
+              Obx(
+                () => Text(
+                  listrestaurantinteriorItemModelObj.languageTxt.value,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.left,
+                  style: AppStyle.txtNexaBook12Black900,
+                ),
               ),
             ],
           ),
@@ -88,10 +92,10 @@ class ListrestaurantinteriorItemWidget extends StatelessWidget {
         CustomImageView(
           svgPath: ImageConstant.imgGroupBlack900,
           height: getVerticalSize(
-            2.00,
+            2,
           ),
           width: getHorizontalSize(
-            20.00,
+            20,
           ),
           margin: getMargin(
             top: 29,

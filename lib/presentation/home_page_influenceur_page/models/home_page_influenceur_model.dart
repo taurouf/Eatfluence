@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:eatfluence_va/data/models/selectionPopupModel/selection_popup_model.dart';
+import 'package:taurouf_s_application9/data/models/selectionPopupModel/selection_popup_model.dart';
 
 class HomePageInfluenceurModel {
   RxList<SelectionPopupModel> dropdownItemList = [

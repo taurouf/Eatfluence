@@ -40,7 +40,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.eatfluenceva.app"
+        applicationId "com.eatfluencetest.app"
         minSdkVersion 21
         targetSdkVersion 33
         multiDexEnabled true

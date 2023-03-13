@@ -1,5 +1,5 @@
-import 'package:eatfluence_va/core/app_export.dart';
-import 'package:eatfluence_va/presentation/home_page_influenceur_page/models/home_page_influenceur_model.dart';
+import 'package:taurouf_s_application9/core/app_export.dart';
+import 'package:taurouf_s_application9/presentation/home_page_influenceur_page/models/home_page_influenceur_model.dart';
 
 class HomePageInfluenceurController extends GetxController {
   HomePageInfluenceurController(this.homePageInfluenceurModelObj);

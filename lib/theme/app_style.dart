@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:eatfluence_va/core/app_export.dart';
+import 'package:taurouf_s_application9/core/app_export.dart';
 
 class AppStyle {
   static TextStyle txtNexaBook16 = TextStyle(
@@ -11,15 +11,6 @@ class AppStyle {
     fontWeight: FontWeight.w300,
   );
 
-  static TextStyle txtNexaLight12Bluegray900 = TextStyle(
-    color: ColorConstant.blueGray900,
-    fontSize: getFontSize(
-      12,
-    ),
-    fontFamily: 'Nexa Light',
-    fontWeight: FontWeight.w400,
-  );
-
   static TextStyle txtNexaBook15 = TextStyle(
     color: ColorConstant.black900,
     fontSize: getFontSize(
@@ -27,6 +18,15 @@ class AppStyle {
     ),
     fontFamily: 'Nexa',
     fontWeight: FontWeight.w300,
+  );
+
+  static TextStyle txtNexaLight12Black900 = TextStyle(
+    color: ColorConstant.black900,
+    fontSize: getFontSize(
+      12,
+    ),
+    fontFamily: 'Nexa Light',
+    fontWeight: FontWeight.w400,
   );
 
   static TextStyle txtNexaBook14 = TextStyle(
@@ -83,17 +83,35 @@ class AppStyle {
     fontWeight: FontWeight.w300,
   );
 
-  static TextStyle txtNexaBold1808WhiteA700 = TextStyle(
-    color: ColorConstant.whiteA700,
+  static TextStyle txtNexaLight1627 = TextStyle(
+    color: ColorConstant.gray800,
     fontSize: getFontSize(
-      18.08,
+      16.27,
+    ),
+    fontFamily: 'Nexa Light',
+    fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle txtNexaBold11Black900 = TextStyle(
+    color: ColorConstant.black900,
+    fontSize: getFontSize(
+      11,
     ),
     fontFamily: 'Nexa Bold',
     fontWeight: FontWeight.w700,
   );
 
+  static TextStyle txtNexaLight1622 = TextStyle(
+    color: ColorConstant.gray800,
+    fontSize: getFontSize(
+      16.22,
+    ),
+    fontFamily: 'Nexa Light',
+    fontWeight: FontWeight.w400,
+  );
+
   static TextStyle txtNexaBook9 = TextStyle(
-    color: ColorConstant.whiteA700,
+    color: ColorConstant.blueGray900,
     fontSize: getFontSize(
       9,
     ),
@@ -137,6 +155,15 @@ class AppStyle {
     fontWeight: FontWeight.w700,
   );
 
+  static TextStyle txtNexaBook15Black900 = TextStyle(
+    color: ColorConstant.black900,
+    fontSize: getFontSize(
+      15,
+    ),
+    fontFamily: 'Nexa',
+    fontWeight: FontWeight.w300,
+  );
+
   static TextStyle txtNexaBold19 = TextStyle(
     color: ColorConstant.black900,
     fontSize: getFontSize(
@@ -178,14 +205,32 @@ class AppStyle {
     fontSize: getFontSize(
       23,
     ),
-    fontFamily: 'Inter',
+    fontFamily: 'Nexa',
     fontWeight: FontWeight.w300,
   );
 
   static TextStyle txtNexaBold14 = TextStyle(
-    color: ColorConstant.whiteA700,
+    color: ColorConstant.black900,
     fontSize: getFontSize(
       14,
+    ),
+    fontFamily: 'Nexa Bold',
+    fontWeight: FontWeight.w700,
+  );
+
+  static TextStyle txtNexaBook9WhiteA700 = TextStyle(
+    color: ColorConstant.whiteA700,
+    fontSize: getFontSize(
+      9,
+    ),
+    fontFamily: 'Nexa',
+    fontWeight: FontWeight.w300,
+  );
+
+  static TextStyle txtNexaBold17 = TextStyle(
+    color: ColorConstant.black900,
+    fontSize: getFontSize(
+      17,
     ),
     fontFamily: 'Nexa Bold',
     fontWeight: FontWeight.w700,
@@ -205,7 +250,7 @@ class AppStyle {
     fontSize: getFontSize(
       20,
     ),
-    fontFamily: 'Inter',
+    fontFamily: 'Nexa',
     fontWeight: FontWeight.w300,
   );
 
@@ -215,15 +260,6 @@ class AppStyle {
       11,
     ),
     fontFamily: 'Nexa Bold',
-    fontWeight: FontWeight.w700,
-  );
-
-  static TextStyle txtInterBold14 = TextStyle(
-    color: ColorConstant.black900,
-    fontSize: getFontSize(
-      14,
-    ),
-    fontFamily: 'Inter',
     fontWeight: FontWeight.w700,
   );
 
@@ -245,10 +281,10 @@ class AppStyle {
     fontWeight: FontWeight.w700,
   );
 
-  static TextStyle txtNexaBook6 = TextStyle(
+  static TextStyle txtNexaBook12Black900 = TextStyle(
     color: ColorConstant.black900,
     fontSize: getFontSize(
-      6,
+      12,
     ),
     fontFamily: 'Nexa',
     fontWeight: FontWeight.w300,
@@ -281,15 +317,6 @@ class AppStyle {
     fontWeight: FontWeight.w700,
   );
 
-  static TextStyle txtNexaBold1802WhiteA700 = TextStyle(
-    color: ColorConstant.whiteA700,
-    fontSize: getFontSize(
-      18.02,
-    ),
-    fontFamily: 'Nexa Bold',
-    fontWeight: FontWeight.w700,
-  );
-
   static TextStyle txtNexaBold1802 = TextStyle(
     color: ColorConstant.black900,
     fontSize: getFontSize(
@@ -297,15 +324,6 @@ class AppStyle {
     ),
     fontFamily: 'Nexa Bold',
     fontWeight: FontWeight.w700,
-  );
-
-  static TextStyle txtNexaBook1012 = TextStyle(
-    color: ColorConstant.gray500,
-    fontSize: getFontSize(
-      10.12,
-    ),
-    fontFamily: 'Nexa',
-    fontWeight: FontWeight.w300,
   );
 
   static TextStyle txtNexaBold1247 = TextStyle(
@@ -335,19 +353,19 @@ class AppStyle {
     fontWeight: FontWeight.w700,
   );
 
-  static TextStyle txtNexaBook20Black900 = TextStyle(
-    color: ColorConstant.black900,
-    fontSize: getFontSize(
-      20,
-    ),
-    fontFamily: 'Nexa',
-    fontWeight: FontWeight.w300,
-  );
-
   static TextStyle txtNexaBold20 = TextStyle(
     color: ColorConstant.black900,
     fontSize: getFontSize(
       20,
+    ),
+    fontFamily: 'Nexa Bold',
+    fontWeight: FontWeight.w700,
+  );
+
+  static TextStyle txtNexaBold12Black900 = TextStyle(
+    color: ColorConstant.black900,
+    fontSize: getFontSize(
+      12,
     ),
     fontFamily: 'Nexa Bold',
     fontWeight: FontWeight.w700,
@@ -362,19 +380,37 @@ class AppStyle {
     fontWeight: FontWeight.w300,
   );
 
-  static TextStyle txtNexaBold12Black900 = TextStyle(
+  static TextStyle txtNexaBook12Black9001 = TextStyle(
     color: ColorConstant.black900,
     fontSize: getFontSize(
       12,
     ),
-    fontFamily: 'Nexa Bold',
-    fontWeight: FontWeight.w700,
+    fontFamily: 'Nexa',
+    fontWeight: FontWeight.w300,
   );
 
-  static TextStyle txtNexaBold14Black900 = TextStyle(
+  static TextStyle txtNexaLight9 = TextStyle(
     color: ColorConstant.black900,
     fontSize: getFontSize(
-      14,
+      9,
+    ),
+    fontFamily: 'Nexa Light',
+    fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle txtNexaBook11Black900 = TextStyle(
+    color: ColorConstant.black900,
+    fontSize: getFontSize(
+      11,
+    ),
+    fontFamily: 'Nexa',
+    fontWeight: FontWeight.w300,
+  );
+
+  static TextStyle txtNexaBold32 = TextStyle(
+    color: ColorConstant.black900,
+    fontSize: getFontSize(
+      32,
     ),
     fontFamily: 'Nexa Bold',
     fontWeight: FontWeight.w700,
@@ -389,15 +425,6 @@ class AppStyle {
     fontWeight: FontWeight.w700,
   );
 
-  static TextStyle txtNexaBold32 = TextStyle(
-    color: ColorConstant.black900,
-    fontSize: getFontSize(
-      32,
-    ),
-    fontFamily: 'Nexa Bold',
-    fontWeight: FontWeight.w700,
-  );
-
   static TextStyle txtNexaBook13Black900 = TextStyle(
     color: ColorConstant.black900,
     fontSize: getFontSize(
@@ -405,15 +432,6 @@ class AppStyle {
     ),
     fontFamily: 'Nexa',
     fontWeight: FontWeight.w300,
-  );
-
-  static TextStyle txtInterBold32 = TextStyle(
-    color: ColorConstant.black900,
-    fontSize: getFontSize(
-      32,
-    ),
-    fontFamily: 'Inter',
-    fontWeight: FontWeight.w700,
   );
 
   static TextStyle txtNexaBold30 = TextStyle(
@@ -488,17 +506,8 @@ class AppStyle {
     fontWeight: FontWeight.w300,
   );
 
-  static TextStyle txtNexaBook23Black900 = TextStyle(
-    color: ColorConstant.black900,
-    fontSize: getFontSize(
-      23,
-    ),
-    fontFamily: 'Nexa',
-    fontWeight: FontWeight.w300,
-  );
-
   static TextStyle txtNexaLight12 = TextStyle(
-    color: ColorConstant.black900,
+    color: ColorConstant.blueGray900,
     fontSize: getFontSize(
       12,
     ),
